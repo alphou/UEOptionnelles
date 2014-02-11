@@ -1,0 +1,7 @@
+parameters:
+#    ueo_choix.example.class: UEO\ChoixBundle\Example
+
+services:
+#    ueo_choix.example:
+#        class: %ueo_choix.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,22 @@
+UEO\ChoixBundle\Entity\Etudiant:
+    type: entity
+    table: null
+    repositoryClass: UEO\ChoixBundle\Entity\EtudiantRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+        prenom:
+            type: string
+        email:
+            type: string
+            length: 32
+    oneToOne: 
+            parcours:
+                targetEntity: Parcours
+    lifecycleCallbacks: {  }

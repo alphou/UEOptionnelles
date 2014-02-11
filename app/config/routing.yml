@@ -1,0 +1,4 @@
+ueo_choix:
+    resource: "@UEOChoixBundle/Resources/config/routing.yml"
+    prefix:   /
+

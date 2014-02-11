@@ -1,0 +1,18 @@
+UEO\ChoixBundle\Entity\ModuleParcours:
+    type: entity
+    table: null
+    repositoryClass: UEO\ChoixBundle\Entity\ModuleParcoursRepository
+    id:
+        module:
+            associationKey: true
+        parcours:
+            associationKey: true
+    fields:
+        oligatoire:
+            type: boolean
+    oneToOne:
+        module:
+            targetEntity: Module
+        parcours:
+            targetEntity: Parcours
+    lifecycleCallbacks: {  }

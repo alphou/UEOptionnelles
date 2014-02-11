@@ -1,0 +1,42 @@
+UEO\ChoixBundle\Entity\Module:
+    type: entity
+    table: null
+    repositoryClass: UEO\ChoixBundle\Entity\ModuleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        intitule:
+            type: string
+        semestre:
+            type: smallint
+        contenu:
+            type: string
+        nbInscrits:
+            type: smallint
+        nbPlaces:
+            type: smallint
+        professeur1:
+            type: string
+        professeur2:
+            type: string
+        professeur3:
+            type: string
+        professeur4:
+            type: string
+        professeur5:
+            type: string
+        professeur6:
+            type: string
+        professeur7:
+            type: string
+        professeur8:
+            type: string
+        professeur9:
+            type: string
+        professeur10:
+            type: string
+    lifecycleCallbacks: {  }

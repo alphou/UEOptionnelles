@@ -1,0 +1,34 @@
+UEO\ChoixBundle\Entity\Parcours:
+    type: entity
+    table: null
+    repositoryClass: UEO\ChoixBundle\Entity\ParcoursRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        intitule:
+            type: string
+        nbOptions:
+            type: smallint
+        dateDebutChoixS1:
+            type: datetime
+        dateFinChoixS1:
+            type: datetime
+        dateDebutChoix2:
+            type: datetime
+        dateFinChoixS2:
+            type: datetime
+        intituleCourt:
+            type: string
+        anneeFormation:
+            type: smallint
+        emailResponsable:
+            type: string
+            length: 32
+    oneToOne: 
+            specialite:
+                targetEntity: Specialite
+    lifecycleCallbacks: {  }

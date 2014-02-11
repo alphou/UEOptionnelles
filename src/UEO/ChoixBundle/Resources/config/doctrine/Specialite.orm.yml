@@ -1,0 +1,14 @@
+UEO\ChoixBundle\Entity\Specialite:
+    type: entity
+    table: null
+    repositoryClass: UEO\ChoixBundle\Entity\SpecialiteRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        intitule:
+            type: string
+    lifecycleCallbacks: {  }
