@@ -1,4 +1,4 @@
-Projet de gestion des UE Optionnelles de l'UPJV
+Projet de gestion des UE Optionnelles
 ========================
 
-Ce site a pour objectif de permettre aux étudiants inscrits dans le master STIC de l'UPJV de choisir leur Unité d'Enseignement Optionnelles.
+Ce site a pour objectif de permettre aux étudiants inscrits dans le master STIC de l'Université de Picardie Jules Verne de choisir leur Unités d'Enseignements Optionnelles.
