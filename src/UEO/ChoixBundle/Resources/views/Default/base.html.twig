@@ -1,24 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head>
-	<meta http­equiv="Content­Type" content="text/html; charset=utf­8" />
-	<title>{% block titre %}Qcm ­ Salle de Tp{% endblock %}</title>
-</head>
-<body>
-	<div id="navigation" >
-	{% block navigation %}
-	{% endblock %}
-	</div>
-
-	<div id="contenu" >
-	                <h1>Gestion des Salles de TP</h1>
-	                {% block salleTp_contenu %}
-	                {% endblock %}
-	</div>
-	
-<hr />
-<div id="pied_de_page" >
-<p>&copy; DF.</p>
-</div>
-</body>
+    <head>
+        {% block head %}
+            <link rel="stylesheet" href="style.css" />
+            <title>{% block title %}{% endblock %} - My Webpage</title>
+        {% endblock %}
+    </head>
+    <body>
+        <div id="content">{% block content %}{% endblock %}</div>
+        <div id="footer">
+            {% block footer %}
+                &copy; Copyright 2011 by <a href="http://domain.invalid/">you</a>.
+            {% endblock %}
+        </div>
+    </body>
 </html>
