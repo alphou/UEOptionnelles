@@ -1717,7 +1717,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>52fd5398d5c53</argument>
+            <argument>52fdd56e66610</argument>
           </service>
         </argument>
         <argument type="service">
@@ -1734,6 +1734,11 @@
             <argument type="service" id="security.user_checker"/>
             <argument>9834bfd5b19f3ba1c84855e5ea9b7c85</argument>
             <argument>main</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
+            <argument>52fdd56e66610</argument>
           </service>
         </argument>
       </argument>
@@ -1888,7 +1893,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>52fd5398d5c53</argument>
+            <argument>52fdd56e66610</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -2063,6 +2068,13 @@
             <argument type="service" id="security.authentication.manager"/>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
+            <argument type="service" id="security.context"/>
+            <argument>52fdd56e66610</argument>
+            <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
         <argument type="service" id="security.access_listener"/>

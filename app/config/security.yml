@@ -20,7 +20,6 @@ security:
         login:
             pattern:   ^/(login$|register|resetting)
             anonymous: true
-
         main:
             pattern: ^/
             form_login:
@@ -28,7 +27,7 @@ security:
                 remember_me: true
             remember_me: 
                 key: "%secret%"
-            anonymous:       false
+            anonymous:       true
             logout:          true
 
     access_control:

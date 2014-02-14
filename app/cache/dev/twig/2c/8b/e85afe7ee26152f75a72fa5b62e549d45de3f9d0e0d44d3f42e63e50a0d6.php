@@ -16,8 +16,10 @@ class __TwigTemplate_2c8be85afe7ee26152f75a72fa5b62e549d45de3f9d0e0d44d3f42e63e5
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "\t<!DOCTYPE html>
-\t\t\t<html lang=\"fr\">
+        echo "
+
+  <!DOCTYPE html>
+      <html lang=\"fr\">
   <head>
     <title>Inscriptions pédagogiques</title>
     <meta charset=\"utf-8\">
@@ -27,12 +29,33 @@ class __TwigTemplate_2c8be85afe7ee26152f75a72fa5b62e549d45de3f9d0e0d44d3f42e63e5
     <meta name=\"description\" content=\"\">
     <meta name=\"author\" content=\"\">
     <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/img/favicon.ico\">
-    <!-- Bootstrap -->
-    <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">
-    <!-- Custom styles for this template -->
-    <link href=\"css/styles.css?v=12220\" rel=\"stylesheet\">
     
-  </head>  
+    <!-- Bootstrap -->
+    <link href=\"http://ueoptionnelleshtml.soufiane.fr/css/bootstrap.min.css\" rel=\"stylesheet\">
+    <!-- Custom styles for this template -->
+    <link href=\"http://ueoptionnelleshtml.soufiane.fr/css/styles.css?v=12220\" rel=\"stylesheet\">
+    
+    <link rel=\"stylesheet\" href=\"http://ueoptionnelleshtml.soufiane.fr/css/bootstrap-3.0.3.min.css\" type=\"text/css\">
+    <link rel=\"stylesheet\" href=\"http://ueoptionnelleshtml.soufiane.fr/css/bootstrap-multiselect.css\" type=\"text/css\">
+
+    <script type=\"text/javascript\" src=\"http://ueoptionnelleshtml.soufiane.fr/js/jquery-2.0.3.min.js\"></script>
+    <script type=\"text/javascript\" src=\"http://ueoptionnelleshtml.soufiane.fr/js/bootstrap-3.0.3.min.js\"></script>
+    <script type=\"text/javascript\" src=\"http://ueoptionnelleshtml.soufiane.fr/js/bootstrap-multiselect.js\"></script>
+    
+    <!-- DataTables CSS -->
+<link rel=\"stylesheet\" type=\"text/css\" href=\"//cdn.datatables.net/1.10.0-beta.1/css/jquery.dataTables.css\">
+ 
+<!-- DataTables -->
+<script type=\"text/javascript\" charset=\"utf8\" src=\"//cdn.datatables.net/1.10.0-beta.1/js/jquery.dataTables.js\"></script>
+
+<!-- DataTables CSS -->
+<link rel=\"stylesheet\" type=\"text/css\" href=\"//cdn.datatables.net/plug-ins/505bef35b56/integration/bootstrap/3/dataTables.bootstrap.css\">
+ 
+<!-- DataTables -->
+<script type=\"text/javascript\" charset=\"utf8\" src=\"//cdn.datatables.net/plug-ins/505bef35b56/integration/bootstrap/3/dataTables.bootstrap.css\"></script>
+
+    
+    </head>  
   <body id=\"index\">
   
   <div class=\"container\">
@@ -77,21 +100,21 @@ class __TwigTemplate_2c8be85afe7ee26152f75a72fa5b62e549d45de3f9d0e0d44d3f42e63e5
     <div class=\"modal-content\">
     <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>
       <form class=\"form-signin\" role=\"form\">
-      \t\t<h2 class=\"form-signin-heading\">Formulaire l inscription</h2>
-      \t\t<p>Veuillez vous inscrire et attendre l activation de votre compte pour pouvoir faire vos choix d options.</p><p>
+          <h2 class=\"form-signin-heading\">Formulaire l inscription</h2>
+          <p>Veuillez vous inscrire et attendre l activation de votre compte pour pouvoir faire vos choix d options.</p><p>
 
 Les champs annotés d une astérisque * doivent être remplis.</p>
-\t\t  <div class=\"form-group\">
-\t\t    <label>Nom : </label>
-\t\t    <input type=\"text\" class=\"form-control\" placeholder=\"Nom\" required>
-\t\t  </div>
-\t\t  <div class=\"form-group\">
-\t\t    <label>Prénom : </label>
-\t\t    <input type=\"text\" class=\"form-control\" placeholder=\"Prénom\" required>
-\t\t  </div>
-\t\t  
-\t\t  <div class=\"form-group\">
-\t\t  <label>Choisir un parcours : </label>
+      <div class=\"form-group\">
+        <label>Nom : </label>
+        <input type=\"text\" class=\"form-control\" placeholder=\"Nom\" required>
+      </div>
+      <div class=\"form-group\">
+        <label>Prénom : </label>
+        <input type=\"text\" class=\"form-control\" placeholder=\"Prénom\" required>
+      </div>
+      
+      <div class=\"form-group\">
+      <label>Choisir un parcours : </label>
 <select class=\"form-control\">
 <option value=\"7\">Master 1 2IBS</option>
 <option value=\"6\">Master 1 ISRI</option>
@@ -103,32 +126,32 @@ Les champs annotés d une astérisque * doivent être remplis.</p>
 <option value=\"1\">Master 2 MIAGE OSIE</option>
 <option value=\"2\">Master 2 MIAGE SIS</option>
 </select>
-\t\t  </div>
-\t\t  
-\t\t  <div class=\"form-group\">
-\t\t    <label for=\"exampleInputEmail1\">Adresse email : </label>
-\t\t    <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Entrer votre adresse email\" required>
-\t\t  </div>
-\t\t  
-\t\t  
-\t\t  <div class=\"form-group\">
-\t\t    <label>Identifiant : </label>
-\t\t    <input type=\"text\" class=\"form-control\" placeholder=\"Identifiant\" required>
-\t\t  </div>
-\t\t  
-\t\t  <div class=\"form-group\">
-\t\t    <label>Mot de passe : </label>
-\t\t    <input type=\"text\" class=\"form-control\" placeholder=\"Mot de passe\" required>
-\t\t  </div>
-\t\t  
-\t\t  
-\t\t  <div class=\"form-group\">
-\t\t    <label>Confirmer mot de passe : </label>
-\t\t    <input type=\"text\" class=\"form-control\" placeholder=\"Mot de passe\" required>
-\t\t  </div>
-\t\t 
-\t\t  <button type=\"submit\" class=\"btn btn-default\" >Envoyer</button>
-\t\t</form>
+      </div>
+      
+      <div class=\"form-group\">
+        <label for=\"exampleInputEmail1\">Adresse email : </label>
+        <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Entrer votre adresse email\" required>
+      </div>
+      
+      
+      <div class=\"form-group\">
+        <label>Identifiant : </label>
+        <input type=\"text\" class=\"form-control\" placeholder=\"Identifiant\" required>
+      </div>
+      
+      <div class=\"form-group\">
+        <label>Mot de passe : </label>
+        <input type=\"text\" class=\"form-control\" placeholder=\"Mot de passe\" required>
+      </div>
+      
+      
+      <div class=\"form-group\">
+        <label>Confirmer mot de passe : </label>
+        <input type=\"text\" class=\"form-control\" placeholder=\"Mot de passe\" required>
+      </div>
+     
+      <button type=\"submit\" class=\"btn btn-default\" >Envoyer</button>
+    </form>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
@@ -160,44 +183,41 @@ Les champs annotés d une astérisque * doivent être remplis.</p>
     <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>
       <form class=\"form-signin\" role=\"form\">
       <h2 class=\"form-signin-heading\">Nous contacter par email</h2>
-      \t\t<p>Vous avez des questions concernant les UE optionnelles ou l utilisation de l application web. contactez-nous.</p><p>
+          <p>Vous avez des questions concernant les UE optionnelles ou l utilisation de l application web. contactez-nous.</p><p>
 
 Les champs annotés de un astérisque * doivent être remplis.</p>
-\t\t  <div class=\"form-group\">
-\t\t    <label>Nom / Prenom</label>
-\t\t    <input type=\"text\" class=\"form-control\" placeholder=\"Nom / Prénom\">
-\t\t  </div>
-\t\t  <div class=\"form-group\">
-\t\t    <label for=\"exampleInputEmail1\">Adresse email</label>
-\t\t    <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Entrer votre adresse email\">
-\t\t  </div>
-\t\t  <div class=\"form-group\">
-\t\t  <label>Parcourt</label>
-\t\t  <select class=\"form-control\">
+      <div class=\"form-group\">
+        <label>Nom / Prenom</label>
+        <input type=\"text\" class=\"form-control\" placeholder=\"Nom / Prénom\">
+      </div>
+      <div class=\"form-group\">
+        <label for=\"exampleInputEmail1\">Adresse email</label>
+        <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Entrer votre adresse email\">
+      </div>
+      <div class=\"form-group\">
+      <label>Parcourt</label>
+      <select class=\"form-control\">
   <option>MIAGE</option>
   <option>2IBS</option>
 </select>
-\t\t  </div>
-\t\t  <div class=\"form-group\">
-\t\t  <label>Message</label>
-\t\t  
-\t\t  <textarea class=\"form-control\" rows=\"3\"></textarea>
-\t\t  
-\t\t  </div>
-\t\t  <div class=\"checkbox\">
-\t\t    <label>
-\t\t      <input type=\"checkbox\"> Recevoir une copie de message par email
-\t\t    </label>
-\t\t  </div>
-\t\t  <button type=\"submit\" class=\"btn btn-default\" >Envoyer</button>
-\t\t</form>
+      </div>
+      <div class=\"form-group\">
+      <label>Message</label>
+      
+      <textarea class=\"form-control\" rows=\"3\"></textarea>
+      
+      </div>
+      <div class=\"checkbox\">
+        <label>
+          <input type=\"checkbox\"> Recevoir une copie de message par email
+        </label>
+      </div>
+      <button type=\"submit\" class=\"btn btn-default\" >Envoyer</button>
+    </form>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal --> 
-<!-- jQuery (necessary for Bootstrap s JavaScript plugins) -->
-    <script src=\"js/jquery-1.10.2.min.js\"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src=\"js/bootstrap.min.js\"></script>
+
   </body>
 </html>    ";
     }
