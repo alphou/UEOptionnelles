@@ -1,6 +1,12 @@
 ueo_choix_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: UEOChoixBundle:Default:index2 }
-homepage:
+ueo_choixhomepage:
     pattern:  /
     defaults: { _controller: UEOChoixBundle:Default:index }
+ueo_choix_etudiant:
+    pattern:  /etudiant
+    defaults: { _controller: UEOChoixBundle:Default:etudiant }
+ueo_choix_menu: 
+    pattern:  /menu 
+    defaults: { _controller: QcmSalleTpBundle:Default:menu }

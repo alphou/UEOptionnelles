@@ -10,4 +10,8 @@ class DefaultController extends Controller
     {
         return $this->render('UEOChoixBundle:Default:index.html.twig');
     }
+    public function menuAction()
+    {
+        return $this->render('UEOChoixBundle:Default:menu.html.twig');
+    }
 }
