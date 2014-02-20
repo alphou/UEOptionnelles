@@ -1,0 +1,70 @@
+{% extends "UEOChoixBundle::layout.html.twig" %}
+{% block title %}Gestion des modules{% endblock %}
+{% block body -%}
+    <h1>Gestion des modules</h1><br><br>
+    <ul class="nav">
+        <li>
+            <a href="{{ path('module_new') }}">
+                Ajouter un module
+            </a>
+        </li>
+    </ul>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Intitule</th>
+                <th>Semestre</th>
+                <th>Contenu</th>
+                <th>Nbinscrits</th>
+                <th>Nbplaces</th>
+                <th>Professeur1</th>
+                <th>Professeur2</th>
+                <th>Professeur3</th>
+                <th>Professeur4</th>
+                <th>Professeur5</th>
+                <th>Professeur6</th>
+                <th>Professeur7</th>
+                <th>Professeur8</th>
+                <th>Professeur9</th>
+                <th>Professeur10</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('module_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.intitule }}</td>
+                <td>{{ entity.semestre }}</td>
+                <td>{{ entity.contenu }}</td>
+                <td>{{ entity.nbInscrits }}</td>
+                <td>{{ entity.nbPlaces }}</td>
+                <td>{{ entity.professeur1 }}</td>
+                <td>{{ entity.professeur2 }}</td>
+                <td>{{ entity.professeur3 }}</td>
+                <td>{{ entity.professeur4 }}</td>
+                <td>{{ entity.professeur5 }}</td>
+                <td>{{ entity.professeur6 }}</td>
+                <td>{{ entity.professeur7 }}</td>
+                <td>{{ entity.professeur8 }}</td>
+                <td>{{ entity.professeur9 }}</td>
+                <td>{{ entity.professeur10 }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('module_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('module_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    {% endblock %}

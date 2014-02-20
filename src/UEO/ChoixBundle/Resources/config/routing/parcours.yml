@@ -1,0 +1,30 @@
+parcours:
+    pattern:  /
+    defaults: { _controller: "UEOChoixBundle:Parcours:index" }
+
+parcours_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "UEOChoixBundle:Parcours:show" }
+
+parcours_new:
+    pattern:  /new
+    defaults: { _controller: "UEOChoixBundle:Parcours:new" }
+
+parcours_create:
+    pattern:  /create
+    defaults: { _controller: "UEOChoixBundle:Parcours:create" }
+    requirements: { _method: post }
+
+parcours_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "UEOChoixBundle:Parcours:edit" }
+
+parcours_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "UEOChoixBundle:Parcours:update" }
+    requirements: { _method: post|put }
+
+parcours_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "UEOChoixBundle:Parcours:delete" }
+    requirements: { _method: post|delete }

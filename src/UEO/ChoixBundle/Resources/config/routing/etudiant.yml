@@ -1,0 +1,34 @@
+etudiant:
+    pattern:  /
+    defaults: { _controller: "UEOChoixBundle:Etudiant:index" }
+
+etudiant_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "UEOChoixBundle:Etudiant:show" }
+
+etudiant_new:
+    pattern:  /new
+    defaults: { _controller: "UEOChoixBundle:Etudiant:new" }
+
+etudiant_create:
+    pattern:  /create
+    defaults: { _controller: "UEOChoixBundle:Etudiant:create" }
+    requirements: { _method: post }
+
+etudiant_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "UEOChoixBundle:Etudiant:edit" }
+
+etudiant_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "UEOChoixBundle:Etudiant:update" }
+    requirements: { _method: post|put }
+
+etudiant_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "UEOChoixBundle:Etudiant:delete" }
+    requirements: { _method: post|delete }
+
+etudiant_supprimer:
+    pattern:  /{id}/supprimer
+    defaults: { _controller: "UEOChoixBundle:Etudiant:supprimer" }

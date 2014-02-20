@@ -1,0 +1,30 @@
+specialite:
+    pattern:  /
+    defaults: { _controller: "UEOChoixBundle:Specialite:index" }
+
+specialite_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "UEOChoixBundle:Specialite:show" }
+
+specialite_new:
+    pattern:  /new
+    defaults: { _controller: "UEOChoixBundle:Specialite:new" }
+
+specialite_create:
+    pattern:  /create
+    defaults: { _controller: "UEOChoixBundle:Specialite:create" }
+    requirements: { _method: post }
+
+specialite_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "UEOChoixBundle:Specialite:edit" }
+
+specialite_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "UEOChoixBundle:Specialite:update" }
+    requirements: { _method: post|put }
+
+specialite_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "UEOChoixBundle:Specialite:delete" }
+    requirements: { _method: post|delete }

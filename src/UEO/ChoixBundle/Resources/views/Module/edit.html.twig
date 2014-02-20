@@ -1,0 +1,17 @@
+{% extends "UEOChoixBundle::layout.html.twig" %}
+{% block title %}Gestion des modules{% endblock %}
+
+{% block body -%}
+    <h1>Module edit</h1>
+
+    {{ form(edit_form) }}
+
+        <ul class="nav">
+    <li>
+        <a href="{{ path('module') }}">
+            Liste des modules
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

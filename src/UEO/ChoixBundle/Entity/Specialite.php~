@@ -52,4 +52,54 @@ class Specialite
     {
         return $this->intitule;
     }
+    public function __toString()
+    {
+        return(string) $this->intitule;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $parcours;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->parcours = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add parcours
+     *
+     * @param \UEO\ChoixBundle\Entity\Parcours $parcours
+     * @return Specialite
+     */
+    public function addParcour(\UEO\ChoixBundle\Entity\Parcours $parcours)
+    {
+        $this->parcours[] = $parcours;
+
+        return $this;
+    }
+
+    /**
+     * Remove parcours
+     *
+     * @param \UEO\ChoixBundle\Entity\Parcours $parcours
+     */
+    public function removeParcour(\UEO\ChoixBundle\Entity\Parcours $parcours)
+    {
+        $this->parcours->removeElement($parcours);
+    }
+
+    /**
+     * Get parcours
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getParcours()
+    {
+        return $this->parcours;
+    }
+    
 }

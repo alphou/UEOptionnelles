@@ -1,0 +1,16 @@
+{% extends "UEOChoixBundle::layout.html.twig" %}
+{% block title %}Gestion des etudiants{% endblock %}
+
+{% block body -%}
+    <h1>Parcours creation</h1>
+
+    {{ form(form) }}
+
+        <ul class="nav">
+    <li>
+        <a href="{{ path('parcours') }}">
+            Liste des parcours
+        </a>
+    </li>
+</ul>
+{% endblock %}

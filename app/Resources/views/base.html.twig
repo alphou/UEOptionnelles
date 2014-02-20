@@ -2,12 +2,24 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Inscription pédagogique{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicontest.ico') }}" />
+        <script type="text/javascript" src="{{ asset('bundles/ueoprojet/js/jquery.js') }}"></script>
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block menu %}
+
+        {% endblock %}
+         <div class="container">
+        {% block notif%}
+        {% endblock %}
+        {% block body %}
+        
+
+        {% endblock %}
+                 
+        </div>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

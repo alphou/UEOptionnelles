@@ -1,0 +1,59 @@
+{% extends "UEOChoixBundle::layout.html.twig" %}
+{% block title %}Gestion des parcours{% endblock %}
+
+{% block body -%}
+    <h1>Gestion des Parcours</h1><br>
+    <ul>
+        <li>
+            <a href="{{ path('parcours_new') }}">
+                Ajouter un nouvel parcours
+            </a>
+        </li>
+    </ul>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <!--<th>Id</th>-->
+                <th>Intitule</th>
+                <th>Nboptions</th>
+                <th>Datedebutchoixs1</th>
+                <th>Datefinchoixs1</th>
+                <th>Datedebutchoix2</th>
+                <th>Datefinchoixs2</th>
+                <th>Intitulecourt</th>
+                <th>Anneeformation</th>
+                <th>Emailresponsable</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <!--<td><a href="{{ path('parcours_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>-->
+                <td>{{ entity.intitule }}</td>
+                <td>{{ entity.nbOptions }}</td>
+                <td>{% if entity.dateDebutChoixS1 %}{{ entity.dateDebutChoixS1|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateFinChoixS1 %}{{ entity.dateFinChoixS1|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateDebutChoix2 %}{{ entity.dateDebutChoix2|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateFinChoixS2 %}{{ entity.dateFinChoixS2|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.intituleCourt }}</td>
+                <td>{{ entity.anneeFormation }}</td>
+                <td>{{ entity.emailResponsable }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('parcours_show', { 'id': entity.id }) }}">Voir</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('parcours_edit', { 'id': entity.id }) }}">Modifier</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        
+    {% endblock %}

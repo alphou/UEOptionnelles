@@ -28,7 +28,8 @@ UEO\ChoixBundle\Entity\Parcours:
         emailResponsable:
             type: string
             length: 32
-    oneToOne: 
+    manyToOne: 
             specialite:
                 targetEntity: Specialite
-    lifecycleCallbacks: {  }
+                inversedBy: Parcours
+                cascade: [ persist, merge ]

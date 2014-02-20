@@ -1,0 +1,263 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"to",
+				"toString"
+			],
+			[
+				"int",
+				"intitule"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"th",
+				"this"
+			],
+			[
+				"em",
+				"email"
+			],
+			[
+				"pre",
+				"prenom"
+			],
+			[
+				"pos",
+				"post_id"
+			],
+			[
+				"tag",
+				"tagpage"
+			],
+			[
+				"re",
+				"render_to_response"
+			],
+			[
+				"data",
+				"Database"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/UEOptionnelles/Resources/config/routing.yml",
+		"/Applications/MAMP/htdocs/UEOptionnelles/Resources/config/specialite.yml",
+		"/Applications/MAMP/htdocs/UEOptionnelles/app/config/parameters.yml",
+		"/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/config/services.yml",
+		"/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/config/routing.yml",
+		"/Applications/MAMP/htdocs/UEOptionnelles/app/config/routing.yml",
+		"/Applications/MAMP/htdocs/UEOptionnelles/app/config/config.yml",
+		"/Applications/MAMP/htdocs/Symfony/app/config/config.yml",
+		"/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Entity/Parcours.php",
+		"/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Controller/ParcoursController.php",
+		"/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/views/Parcours/new.html.twig",
+		"/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/views/base.html.twig",
+		"/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/views/Specialite/new.html.twig",
+		"/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Entity/Specialite.php",
+		"/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/views/Parcours/index.html.twig",
+		"/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/config/routing/specialite.yml",
+		"/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Form/EtudiantType.php",
+		"/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Entity/Etudiant.php",
+		"/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/config/specialite.yml",
+		"/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/views/Admin/choix.html.twig",
+		"/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/views/Admin/admin.html.twig",
+		"/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/views/Default/index.html.twig",
+		"/Applications/MAMP/htdocs/Symfony/app/config/parameters.yml",
+		"/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/config/doctrine/Choix.orm.yml",
+		"/private/var/folders/g4/889dl9p953x80gfrm8d8s7d40000gn/T/fz3temp-1/Emargements.php",
+		"/private/var/folders/g4/889dl9p953x80gfrm8d8s7d40000gn/T/fz3temp-1/Parcours.php",
+		"/private/var/folders/g4/889dl9p953x80gfrm8d8s7d40000gn/T/fz3temp-1/phpinfo.php",
+		"/private/var/folders/g4/889dl9p953x80gfrm8d8s7d40000gn/T/fz3temp-1/UE.php",
+		"/Users/alphou/ProjetAlphouBlog/ProjetAlphouBlog/urls.py",
+		"/Users/alphou/ProjetAlphouBlog/AlphouBlog/urls.py",
+		"/Users/alphou/ProjetAlphouBlog/AlphouBlog/admin.py",
+		"/Users/alphou/ProjetAlphouBlog/AlphouBlog/templates/post.html",
+		"/Users/alphou/ProjetAlphouBlog/AlphouBlog/models.py",
+		"/Users/alphou/ProjetAlphouBlog/AlphouBlog/views.py",
+		"/Users/alphou/ProjetAlphouBlog/AlphouBlog/templates/archives.html",
+		"/Users/alphou/ProjetAlphouBlog/AlphouBlog/templates/tagpage.html",
+		"/Users/alphou/ProjetAlphouBlog/ProjetAlphouBlog/urls.pyc",
+		"/Users/alphou/ProjetAlphouBlog/AlphouBlog/templates/MonBlog.html",
+		"/Users/alphou/ProjetAlphouBlog/ProjetAlphouBlog/settings.py",
+		"/Users/alphou/PBlog/PBlog/settings.py",
+		"/Users/alphou/PBlog/PBlog/urls.py",
+		"/Users/alphou/PBlog/blog/templates/post.html",
+		"/Users/alphou/PBlog/blog/templates/bbase.html",
+		"/Users/alphou/PBlog/blog/templates/change_list.html",
+		"/Users/alphou/PBlog/blog/templates/list.html",
+		"/Users/alphou/PBlog/blog/models.py",
+		"/Users/alphou/PBlog/blog/views.py",
+		"/Users/alphou/PBlog/blog/urls.py",
+		"/Users/alphou/PBlog/blog/admin.py",
+		"/Users/alphou/ProjetAlphouBlog/AlphouBlog/templates/base.html",
+		"/Users/alphou/ProjetAlphouBlog/ProjetAlphouBlog/settings.pyc",
+		"/Users/alphou/ProjetBlog/ProjetBlog/settings.py",
+		"/Users/alphou/ProjetBlog/ProjetBlog/urls.py",
+		"/Users/alphou/ProjetBlog/AlphouBlog/models.py",
+		"/Users/alphou/ProjetBlog/MonBlog/admin.py",
+		"/Users/alphou/ProjetBlog/MonBlog/models.py",
+		"/Users/alphou/ProjetBlog/db.sqlite3",
+		"/Users/alphou/Documents/J2EE/serveurs/jboss-as-7.1.1.Final/standalone/configuration/standalone.xml",
+		"/Users/alphou/Documents/Master2/Projet_thématique/inscriptions/inscriptions.sql",
+		"/Users/alphou/Documents/J2EE/jboss-as-7.1.1.Final/standalone/configuration/standalone.xml",
+		"/Users/alphou/Documents/J2EE/serveurs/jboss-as-7.1.1.Final/modules/com/mysql/main/module.xml",
+		"/Users/alphou/Documents/J2EE/jboss-as-7.1.1.Final/modules/com/sun/jsf-impl/main/module.xml",
+		"/Users/alphou/Documents/J2EE/jboss-as-7.1.1.Final/modules/com/h2database/h2/main/module.xml"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"jaas",
+			"datasources",
+			"module",
+			"jaas",
+			"datasources",
+			"jaas",
+			"module",
+			"jaas",
+			"login-module",
+			"security-domain"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"project": "EtudiantType.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 272.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

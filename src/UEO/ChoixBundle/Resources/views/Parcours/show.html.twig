@@ -1,0 +1,61 @@
+{% extends "UEOChoixBundle::layout.html.twig" %}
+{% block title %}Gestion des parcours{% endblock %}
+
+{% block body -%}
+    <h1>Parcours</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Intitule</th>
+                <td>{{ entity.intitule }}</td>
+            </tr>
+            <tr>
+                <th>Nboptions</th>
+                <td>{{ entity.nbOptions }}</td>
+            </tr>
+            <tr>
+                <th>Datedebutchoixs1</th>
+                <td>{{ entity.dateDebutChoixS1|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Datefinchoixs1</th>
+                <td>{{ entity.dateFinChoixS1|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Datedebutchoix2</th>
+                <td>{{ entity.dateDebutChoix2|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Datefinchoixs2</th>
+                <td>{{ entity.dateFinChoixS2|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Intitulecourt</th>
+                <td>{{ entity.intituleCourt }}</td>
+            </tr>
+            <tr>
+                <th>Anneeformation</th>
+                <td>{{ entity.anneeFormation }}</td>
+            </tr>
+            <tr>
+                <th>Emailresponsable</th>
+                <td>{{ entity.emailResponsable }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('parcours') }}">
+            Liste des parcours
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('parcours_edit', { 'id': entity.id }) }}">
+            Modifier
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

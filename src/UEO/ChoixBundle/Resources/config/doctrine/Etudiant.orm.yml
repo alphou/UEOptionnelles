@@ -16,7 +16,7 @@ UEO\ChoixBundle\Entity\Etudiant:
         email:
             type: string
             length: 32
-    oneToOne: 
+    manyToOne: 
             parcours:
                 targetEntity: Parcours
-    lifecycleCallbacks: {  }
+                cascade: [ persist ]

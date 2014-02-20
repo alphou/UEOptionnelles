@@ -135,36 +135,254 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/hello')) {
-            // ueo_user_default_index
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ueo_user_default_index')), array (  '_controller' => 'UEO\\UserBundle\\Controller\\DefaultController::indexAction',));
+        // ueo_user_default_index
+        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'ueo_user_default_index')), array (  '_controller' => 'UEO\\UserBundle\\Controller\\DefaultController::indexAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/etudiant')) {
+            // etudiant
+            if (rtrim($pathinfo, '/') === '/etudiant') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'etudiant');
+                }
+
+                return array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\EtudiantController::indexAction',  '_route' => 'etudiant',);
             }
 
-            // ueo_choix_homepage
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ueo_choix_homepage')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\DefaultController::index2Action',));
+            // etudiant_show
+            if (preg_match('#^/etudiant/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'etudiant_show')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\EtudiantController::showAction',));
+            }
+
+            // etudiant_new
+            if ($pathinfo === '/etudiant/new') {
+                return array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\EtudiantController::newAction',  '_route' => 'etudiant_new',);
+            }
+
+            // etudiant_create
+            if ($pathinfo === '/etudiant/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_etudiant_create;
+                }
+
+                return array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\EtudiantController::createAction',  '_route' => 'etudiant_create',);
+            }
+            not_etudiant_create:
+
+            // etudiant_edit
+            if (preg_match('#^/etudiant/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'etudiant_edit')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\EtudiantController::editAction',));
+            }
+
+            // etudiant_update
+            if (preg_match('#^/etudiant/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_etudiant_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'etudiant_update')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\EtudiantController::updateAction',));
+            }
+            not_etudiant_update:
+
+            // etudiant_delete
+            if (preg_match('#^/etudiant/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_etudiant_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'etudiant_delete')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\EtudiantController::deleteAction',));
+            }
+            not_etudiant_delete:
+
+            // etudiant_supprimer
+            if (preg_match('#^/etudiant/(?P<id>[^/]++)/supprimer$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'etudiant_supprimer')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\EtudiantController::supprimerAction',));
             }
 
         }
 
-        // ueo_choixhomepage
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'ueo_choixhomepage');
+        if (0 === strpos($pathinfo, '/specialite')) {
+            // specialite
+            if (rtrim($pathinfo, '/') === '/specialite') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'specialite');
+                }
+
+                return array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\SpecialiteController::indexAction',  '_route' => 'specialite',);
             }
 
-            return array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\DefaultController::indexAction',  '_route' => 'ueo_choixhomepage',);
+            // specialite_show
+            if (preg_match('#^/specialite/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'specialite_show')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\SpecialiteController::showAction',));
+            }
+
+            // specialite_new
+            if ($pathinfo === '/specialite/new') {
+                return array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\SpecialiteController::newAction',  '_route' => 'specialite_new',);
+            }
+
+            // specialite_create
+            if ($pathinfo === '/specialite/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_specialite_create;
+                }
+
+                return array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\SpecialiteController::createAction',  '_route' => 'specialite_create',);
+            }
+            not_specialite_create:
+
+            // specialite_edit
+            if (preg_match('#^/specialite/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'specialite_edit')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\SpecialiteController::editAction',));
+            }
+
+            // specialite_update
+            if (preg_match('#^/specialite/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_specialite_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'specialite_update')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\SpecialiteController::updateAction',));
+            }
+            not_specialite_update:
+
+            // specialite_delete
+            if (preg_match('#^/specialite/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_specialite_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'specialite_delete')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\SpecialiteController::deleteAction',));
+            }
+            not_specialite_delete:
+
         }
 
-        // ueo_choix_etudiant
-        if ($pathinfo === '/etudiant') {
-            return array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\DefaultController::etudiantAction',  '_route' => 'ueo_choix_etudiant',);
+        if (0 === strpos($pathinfo, '/module')) {
+            // module
+            if (rtrim($pathinfo, '/') === '/module') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'module');
+                }
+
+                return array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\ModuleController::indexAction',  '_route' => 'module',);
+            }
+
+            // module_show
+            if (preg_match('#^/module/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'module_show')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\ModuleController::showAction',));
+            }
+
+            // module_new
+            if ($pathinfo === '/module/new') {
+                return array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\ModuleController::newAction',  '_route' => 'module_new',);
+            }
+
+            // module_create
+            if ($pathinfo === '/module/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_module_create;
+                }
+
+                return array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\ModuleController::createAction',  '_route' => 'module_create',);
+            }
+            not_module_create:
+
+            // module_edit
+            if (preg_match('#^/module/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'module_edit')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\ModuleController::editAction',));
+            }
+
+            // module_update
+            if (preg_match('#^/module/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_module_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'module_update')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\ModuleController::updateAction',));
+            }
+            not_module_update:
+
+            // module_delete
+            if (preg_match('#^/module/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_module_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'module_delete')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\ModuleController::deleteAction',));
+            }
+            not_module_delete:
+
         }
 
-        // ueo_choix_menu
-        if ($pathinfo === '/menu') {
-            return array (  ' _controller' => ' QcmSalleTpBundle:Default:menu ',  '_route' => 'ueo_choix_menu',);
+        if (0 === strpos($pathinfo, '/parcours')) {
+            // parcours
+            if (rtrim($pathinfo, '/') === '/parcours') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'parcours');
+                }
+
+                return array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\ParcoursController::indexAction',  '_route' => 'parcours',);
+            }
+
+            // parcours_show
+            if (preg_match('#^/parcours/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'parcours_show')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\ParcoursController::showAction',));
+            }
+
+            // parcours_new
+            if ($pathinfo === '/parcours/new') {
+                return array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\ParcoursController::newAction',  '_route' => 'parcours_new',);
+            }
+
+            // parcours_create
+            if ($pathinfo === '/parcours/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_parcours_create;
+                }
+
+                return array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\ParcoursController::createAction',  '_route' => 'parcours_create',);
+            }
+            not_parcours_create:
+
+            // parcours_edit
+            if (preg_match('#^/parcours/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'parcours_edit')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\ParcoursController::editAction',));
+            }
+
+            // parcours_update
+            if (preg_match('#^/parcours/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_parcours_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'parcours_update')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\ParcoursController::updateAction',));
+            }
+            not_parcours_update:
+
+            // parcours_delete
+            if (preg_match('#^/parcours/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_parcours_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'parcours_delete')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\ParcoursController::deleteAction',));
+            }
+            not_parcours_delete:
+
         }
 
         if (0 === strpos($pathinfo, '/log')) {

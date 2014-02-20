@@ -1,0 +1,34 @@
+{% extends "UEOChoixBundle::layout.html.twig" %}
+{% block title %}Gestion des specialite{% endblock %}
+
+
+{% block body -%}
+    <h1>Specialite</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <!--<th>Id</th>-->
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Intitule</th>
+                <td>{{ entity.intitule }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="nav">
+    <li>
+        <a href="{{ path('specialite') }}">
+            Liste des spécialité
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('specialite_edit', { 'id': entity.id }) }}">
+            Modifier
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

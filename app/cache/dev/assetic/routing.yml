@@ -2,4 +2,4 @@ _assetic:
     resource: .
     type: assetic
 _app:
-    resource: '/Users/WebDevEur/Google Drive/0. Projet Thématique/70. Codes/UEOptionnelles/app/config/routing_dev.yml'
+    resource: /Applications/MAMP/htdocs/UEOptionnelles/app/config/routing_dev.yml

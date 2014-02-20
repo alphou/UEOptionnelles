@@ -11,4 +11,8 @@ UEO\ChoixBundle\Entity\Specialite:
     fields:
         intitule:
             type: string
-    lifecycleCallbacks: {  }
+    oneToMany:
+        parcours:
+            targetEntity: Parcours
+            mappedBy: Specialite
+            cascade: [ persist, merge,remove ]

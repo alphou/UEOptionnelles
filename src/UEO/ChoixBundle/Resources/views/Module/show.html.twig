@@ -1,0 +1,89 @@
+{% extends "UEOChoixBundle::layout.html.twig" %}
+{% block title %}Gestion des modules{% endblock %}
+
+{% block body -%}
+    <h1>Module</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Intitule</th>
+                <td>{{ entity.intitule }}</td>
+            </tr>
+            <tr>
+                <th>Semestre</th>
+                <td>{{ entity.semestre }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ entity.contenu }}</td>
+            </tr>
+            <tr>
+                <th>Nbinscrits</th>
+                <td>{{ entity.nbInscrits }}</td>
+            </tr>
+            <tr>
+                <th>Nbplaces</th>
+                <td>{{ entity.nbPlaces }}</td>
+            </tr>
+            <tr>
+                <th>Professeur1</th>
+                <td>{{ entity.professeur1 }}</td>
+            </tr>
+            <tr>
+                <th>Professeur2</th>
+                <td>{{ entity.professeur2 }}</td>
+            </tr>
+            <tr>
+                <th>Professeur3</th>
+                <td>{{ entity.professeur3 }}</td>
+            </tr>
+            <tr>
+                <th>Professeur4</th>
+                <td>{{ entity.professeur4 }}</td>
+            </tr>
+            <tr>
+                <th>Professeur5</th>
+                <td>{{ entity.professeur5 }}</td>
+            </tr>
+            <tr>
+                <th>Professeur6</th>
+                <td>{{ entity.professeur6 }}</td>
+            </tr>
+            <tr>
+                <th>Professeur7</th>
+                <td>{{ entity.professeur7 }}</td>
+            </tr>
+            <tr>
+                <th>Professeur8</th>
+                <td>{{ entity.professeur8 }}</td>
+            </tr>
+            <tr>
+                <th>Professeur9</th>
+                <td>{{ entity.professeur9 }}</td>
+            </tr>
+            <tr>
+                <th>Professeur10</th>
+                <td>{{ entity.professeur10 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="nav">
+    <li>
+        <a href="{{ path('module') }}">
+            Liste des modules
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('module_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
