@@ -263,6 +263,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
             not_specialite_delete:
 
+            // specialite_supprimer
+            if (preg_match('#^/specialite/(?P<id>[^/]++)/supprimer$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'specialite_supprimer')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\SpecialiteController::supprimerAction',));
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/module')) {
@@ -322,6 +327,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'module_delete')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\ModuleController::deleteAction',));
             }
             not_module_delete:
+
+            // module_supprimer
+            if (preg_match('#^/module/(?P<id>[^/]++)/supprimer$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'module_supprimer')), array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\ModuleController::supprimerAction',));
+            }
 
         }
 

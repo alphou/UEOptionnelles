@@ -7,16 +7,17 @@ class __TwigTemplate_e2a1317129572ef247c83f496fc8d45acc8ed950bd1d489ea90d0faf62a
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("::base.html.twig");
+        $this->parent = $this->env->loadTemplate("UEOChoixBundle::layout.html.twig");
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
 
     protected function doGetParent(array $context)
     {
-        return "::base.html.twig";
+        return "UEOChoixBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -24,21 +25,27 @@ class __TwigTemplate_e2a1317129572ef247c83f496fc8d45acc8ed950bd1d489ea90d0faf62a
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 3
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Gestion des etudiants";
+    }
+
+    // line 5
     public function block_body($context, array $blocks = array())
     {
-        // line 4
+        // line 6
         echo "<h1>Specialite creation</h1>
 
     ";
-        // line 6
+        // line 8
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form');
         echo "
 
-        <ul class=\"record_actions\">
+        <ul class=\"nav\">
     <li>
         <a href=\"";
-        // line 10
+        // line 12
         echo $this->env->getExtension('routing')->getPath("specialite");
         echo "\">
             Back to the list
@@ -60,6 +67,6 @@ class __TwigTemplate_e2a1317129572ef247c83f496fc8d45acc8ed950bd1d489ea90d0faf62a
 
     public function getDebugInfo()
     {
-        return array (  42 => 10,  35 => 6,  31 => 4,  28 => 3,);
+        return array (  49 => 12,  42 => 8,  38 => 6,  35 => 5,  29 => 2,);
     }
 }

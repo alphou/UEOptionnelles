@@ -62,6 +62,21 @@ class SpecialiteController extends Controller
         );
     }
 
+
+      /**
+     *   supprimer une spécialite
+    **/
+    public function supprimerAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('UEOChoixBundle:Specialite')->find($id);
+
+        $em->remove($entity);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('specialite'));
+    }
+
     /**
     * Creates a form to create a Specialite entity.
     *

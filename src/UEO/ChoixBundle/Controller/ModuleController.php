@@ -53,6 +53,20 @@ class ModuleController extends Controller
         ));
     }
 
+      /**
+     *   supprimer un etudiant
+    **/
+    public function supprimerAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('UEOChoixBundle:Module')->find($id);
+
+        $em->remove($entity);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('module'));
+    }
+
     /**
     * Creates a form to create a Module entity.
     *

@@ -11,8 +11,3 @@ UEO\ChoixBundle\Entity\Specialite:
     fields:
         intitule:
             type: string
-    oneToMany:
-        parcours:
-            targetEntity: Parcours
-            mappedBy: Specialite
-            cascade: [ persist, merge,remove ]

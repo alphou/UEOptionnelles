@@ -77,6 +77,12 @@ class __TwigTemplate_618dd570d73bcc4d98fd40bbfb2880939855a30222a3db0242bed71e1f9
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("specialite_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
             echo "\">Modifier</a>
                     </li>
+                    <li>
+                        <a href=\"";
+            // line 29
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("specialite_supprimer", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
+            echo "\">Supprimer</a>
+                    </li>
                 </ul>
                 </td>
             </tr>
@@ -85,14 +91,14 @@ class __TwigTemplate_618dd570d73bcc4d98fd40bbfb2880939855a30222a3db0242bed71e1f9
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 32
+        // line 35
         echo "        </tbody>
     </table>
 
         <ul>
         <li>
             <a href=\"";
-        // line 37
+        // line 40
         echo $this->env->getExtension('routing')->getPath("specialite_new");
         echo "\">
                 Ajouter une nouvelle spécialité
@@ -114,6 +120,6 @@ class __TwigTemplate_618dd570d73bcc4d98fd40bbfb2880939855a30222a3db0242bed71e1f9
 
     public function getDebugInfo()
     {
-        return array (  96 => 37,  89 => 32,  77 => 26,  71 => 23,  64 => 19,  58 => 18,  55 => 17,  51 => 16,  38 => 5,  35 => 4,  29 => 2,);
+        return array (  102 => 40,  95 => 35,  83 => 29,  77 => 26,  71 => 23,  64 => 19,  58 => 18,  55 => 17,  51 => 16,  38 => 5,  35 => 4,  29 => 2,);
     }
 }

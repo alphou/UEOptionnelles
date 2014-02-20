@@ -28,3 +28,7 @@ module_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "UEOChoixBundle:Module:delete" }
     requirements: { _method: post|delete }
+
+module_supprimer:
+    pattern:  /{id}/supprimer
+    defaults: { _controller: "UEOChoixBundle:Module:supprimer" }

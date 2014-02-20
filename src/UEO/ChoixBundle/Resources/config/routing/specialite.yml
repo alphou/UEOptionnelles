@@ -28,3 +28,7 @@ specialite_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "UEOChoixBundle:Specialite:delete" }
     requirements: { _method: post|delete }
+
+specialite_supprimer:
+    pattern:  /{id}/supprimer
+    defaults: { _controller: "UEOChoixBundle:Specialite:supprimer" }
