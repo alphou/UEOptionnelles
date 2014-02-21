@@ -31,4 +31,4 @@ UEO\ChoixBundle\Entity\Parcours:
     manyToOne: 
             specialite:
                 targetEntity: Specialite
-                cascade: [ persist ]
+                cascade: [ persist, merge ]

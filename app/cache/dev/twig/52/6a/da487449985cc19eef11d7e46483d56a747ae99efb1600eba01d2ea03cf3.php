@@ -54,19 +54,28 @@ class __TwigTemplate_526ada487449985cc19eef11d7e46483d56a747ae99efb1600eba01d2ea
         echo "</td>
             </tr>
             <tr>
-                <th>Email</th>
+                <th>Année</th>
                 <td>";
         // line 19
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "getParcours", array(), "method"), "intitule"), "html", null, true);
+        echo "</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>";
+        // line 23
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "email"), "html", null, true);
         echo "</td>
             </tr>
+            
+                
         </tbody>
     </table>
 
         <ul class=\"nav\">
     <li>
         <a href=\"";
-        // line 26
+        // line 32
         echo $this->env->getExtension('routing')->getPath("etudiant");
         echo "\">
             Liste des étudiants
@@ -74,14 +83,14 @@ class __TwigTemplate_526ada487449985cc19eef11d7e46483d56a747ae99efb1600eba01d2ea
     </li>
     <li>
         <a href=\"";
-        // line 31
+        // line 37
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("etudiant_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
         echo "\">
             Modifier
         </a>
     </li>
     <li>";
-        // line 35
+        // line 41
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'form');
         echo "</li>
 </ul>
@@ -100,6 +109,6 @@ class __TwigTemplate_526ada487449985cc19eef11d7e46483d56a747ae99efb1600eba01d2ea
 
     public function getDebugInfo()
     {
-        return array (  85 => 35,  78 => 31,  70 => 26,  60 => 19,  53 => 15,  46 => 11,  38 => 5,  35 => 4,  29 => 2,);
+        return array (  94 => 41,  87 => 37,  79 => 32,  67 => 23,  60 => 19,  53 => 15,  46 => 11,  38 => 5,  35 => 4,  29 => 2,);
     }
 }

@@ -7,16 +7,17 @@ class __TwigTemplate_0e575195150048d99da66f8cb5401a95db3acdd28ab7ae5e4eac02872c5
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("::base.html.twig");
+        $this->parent = $this->env->loadTemplate("UEOChoixBundle::layout.html.twig");
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
 
     protected function doGetParent(array $context)
     {
-        return "::base.html.twig";
+        return "UEOChoixBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -24,50 +25,56 @@ class __TwigTemplate_0e575195150048d99da66f8cb5401a95db3acdd28ab7ae5e4eac02872c5
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 3
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Gestion des specialite";
+    }
+
+    // line 5
     public function block_body($context, array $blocks = array())
     {
-        // line 4
+        // line 6
         echo "<h1>Specialite</h1>
 
-    <table class=\"record_properties\">
+    <table class=\"table table-bordered\">
         <tbody>
             <tr>
-                <th>Id</th>
+                <!--<th>Id</th>
                 <td>";
-        // line 10
+        // line 12
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"), "html", null, true);
-        echo "</td>
+        echo "</td>-->
             </tr>
             <tr>
                 <th>Intitule</th>
                 <td>";
-        // line 14
+        // line 16
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "intitule"), "html", null, true);
         echo "</td>
             </tr>
         </tbody>
     </table>
 
-        <ul class=\"record_actions\">
+        <ul class=\"nav\">
     <li>
         <a href=\"";
-        // line 21
+        // line 23
         echo $this->env->getExtension('routing')->getPath("specialite");
         echo "\">
-            Back to the list
+            Liste des spécialité
         </a>
     </li>
     <li>
         <a href=\"";
-        // line 26
+        // line 28
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("specialite_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
         echo "\">
-            Edit
+            Modifier
         </a>
     </li>
     <li>";
-        // line 30
+        // line 32
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'form');
         echo "</li>
 </ul>
@@ -86,6 +93,6 @@ class __TwigTemplate_0e575195150048d99da66f8cb5401a95db3acdd28ab7ae5e4eac02872c5
 
     public function getDebugInfo()
     {
-        return array (  71 => 30,  64 => 26,  56 => 21,  46 => 14,  39 => 10,  31 => 4,  28 => 3,);
+        return array (  127 => 59,  129 => 46,  118 => 41,  114 => 40,  90 => 36,  76 => 33,  161 => 78,  137 => 63,  124 => 48,  100 => 42,  81 => 31,  77 => 26,  104 => 43,  58 => 18,  84 => 30,  53 => 16,  34 => 5,  23 => 1,  480 => 162,  474 => 161,  469 => 158,  461 => 155,  457 => 153,  453 => 151,  444 => 149,  440 => 148,  437 => 147,  435 => 146,  430 => 144,  427 => 143,  423 => 142,  413 => 134,  409 => 132,  407 => 131,  402 => 130,  398 => 129,  393 => 126,  387 => 122,  384 => 121,  381 => 120,  379 => 119,  374 => 116,  368 => 112,  365 => 111,  362 => 110,  360 => 109,  355 => 106,  341 => 105,  337 => 103,  322 => 101,  314 => 99,  312 => 98,  309 => 97,  305 => 95,  298 => 91,  294 => 90,  285 => 89,  283 => 88,  278 => 86,  268 => 85,  264 => 84,  258 => 81,  252 => 80,  247 => 78,  241 => 77,  229 => 73,  220 => 70,  214 => 69,  177 => 65,  169 => 83,  140 => 52,  132 => 50,  128 => 49,  107 => 36,  61 => 13,  273 => 96,  269 => 94,  254 => 92,  243 => 88,  240 => 86,  238 => 85,  235 => 74,  230 => 82,  227 => 81,  224 => 71,  221 => 77,  219 => 76,  217 => 75,  208 => 68,  204 => 72,  179 => 69,  159 => 61,  143 => 56,  135 => 49,  119 => 42,  102 => 40,  71 => 28,  67 => 23,  63 => 23,  59 => 16,  38 => 6,  94 => 41,  89 => 29,  85 => 28,  75 => 36,  68 => 24,  56 => 15,  87 => 37,  21 => 2,  26 => 6,  93 => 28,  88 => 35,  78 => 32,  46 => 12,  27 => 4,  44 => 9,  31 => 5,  28 => 4,  201 => 92,  196 => 90,  183 => 82,  171 => 61,  166 => 71,  163 => 62,  158 => 67,  156 => 66,  151 => 71,  142 => 59,  138 => 54,  136 => 51,  121 => 46,  117 => 44,  105 => 40,  91 => 16,  62 => 23,  49 => 12,  24 => 4,  25 => 1,  19 => 1,  79 => 37,  72 => 16,  69 => 31,  47 => 4,  40 => 8,  37 => 7,  22 => 2,  246 => 90,  157 => 60,  145 => 46,  139 => 45,  131 => 52,  123 => 55,  120 => 55,  115 => 43,  111 => 37,  108 => 39,  101 => 32,  98 => 18,  96 => 37,  83 => 29,  74 => 27,  66 => 15,  55 => 17,  52 => 21,  50 => 14,  43 => 8,  41 => 8,  35 => 5,  32 => 4,  29 => 2,  209 => 82,  203 => 78,  199 => 67,  193 => 73,  189 => 71,  187 => 84,  182 => 66,  176 => 87,  173 => 65,  168 => 72,  164 => 59,  162 => 57,  154 => 58,  149 => 51,  147 => 55,  144 => 67,  141 => 48,  133 => 55,  130 => 59,  125 => 44,  122 => 42,  116 => 51,  112 => 50,  109 => 47,  106 => 36,  103 => 32,  99 => 31,  95 => 35,  92 => 40,  86 => 35,  82 => 34,  80 => 11,  73 => 32,  64 => 19,  60 => 19,  57 => 11,  54 => 10,  51 => 16,  48 => 11,  45 => 17,  42 => 8,  39 => 12,  36 => 5,  33 => 4,  30 => 8,);
     }
 }

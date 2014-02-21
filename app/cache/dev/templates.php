@@ -94,6 +94,7 @@
   'UEOChoixBundle:Etudiant:new.html.twig' => '/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/views/Etudiant/new.html.twig',
   'UEOChoixBundle:Etudiant:show.html.twig' => '/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/views/Etudiant/show.html.twig',
   'UEOChoixBundle::index.html.twig' => '/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/views/index.html.twig',
+  'UEOChoixBundle::layout.html.twig' => '/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/views/layout.html.twig',
   'UEOChoixBundle:Module:edit.html.twig' => '/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/views/Module/edit.html.twig',
   'UEOChoixBundle:Module:index.html.twig' => '/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/views/Module/index.html.twig',
   'UEOChoixBundle:Module:new.html.twig' => '/Applications/MAMP/htdocs/UEOptionnelles/src/UEO/ChoixBundle/Resources/views/Module/new.html.twig',

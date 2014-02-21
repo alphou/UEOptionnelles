@@ -3,12 +3,9 @@
 
 {% block body -%}
     <h1>Gestion des étudiants</h1><br>
-     <ul class="nav">
-        <li>
-            <a href="{{ path('etudiant_new') }}">
-                Ajouter un nouvel etudiant
-            </a>
-        </li>
+    <ul>
+    <a class="FR btn btn-primary btn-sm btn-success" href="{{ path('etudiant_new') }}">Ajouter un nouvel etudiant</a>
+     <a class="FR btn btn-primary btn-sm btn-success" href="{{ path('etudiant_new') }}">Télécharger la liste des étduaints</a>
     </ul>
 
     <table class="table table-bordered">
@@ -32,15 +29,9 @@
                 <td>{{ entity.email }}</td>
                 <td>
                 <ul>
-                    <li>
-                        <a href="{{ path('etudiant_show', { 'id': entity.id }) }}">Voir</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('etudiant_edit', { 'id': entity.id }) }}">Modifier</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('etudiant_supprimer', { 'id': entity.id }) }}">Supprimer</a>
-                    </li>
+                    <a class="icon-search" href="{{ path('etudiant_show', { 'id': entity.id }) }}"> </a>
+                    <a class="icon-edit" title="Modifier" href="{{ path('etudiant_edit', { 'id': entity.id }) }}"> </a>
+                    <a class="icon-trash" title="Supprimer cet étudiant" href="{{ path('etudiant_supprimer', { 'id': entity.id }) }}"></a>
 
                 </ul>
                 </td>

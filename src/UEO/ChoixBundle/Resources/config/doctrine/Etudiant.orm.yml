@@ -19,4 +19,4 @@ UEO\ChoixBundle\Entity\Etudiant:
     manyToOne: 
             parcours:
                 targetEntity: Parcours
-                cascade: [ persist ]
+                cascade: [ persist, merge ]

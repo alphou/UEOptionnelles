@@ -2,9 +2,9 @@
 {% block title %}Gestion des modules{% endblock %}
 {% block body -%}
     <h1>Gestion des modules</h1><br><br>
-    <ul class="nav">
+    <ul>
         <li>
-            <a href="{{ path('module_new') }}">
+            <a class="FR btn btn-primary btn-sm btn-success" href="{{ path('module_new') }}">
                 Ajouter un module
             </a>
         </li>
@@ -13,7 +13,6 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Intitule</th>
                 <th>Semestre</th>
                 <th>Contenu</th>
@@ -35,7 +34,7 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('module_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <!--<td><a href="{{ path('module_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>-->
                 <td>{{ entity.intitule }}</td>
                 <td>{{ entity.semestre }}</td>
                 <td>{{ entity.contenu }}</td>

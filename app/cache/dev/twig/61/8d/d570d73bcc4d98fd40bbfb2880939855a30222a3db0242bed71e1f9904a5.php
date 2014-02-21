@@ -36,7 +36,17 @@ class __TwigTemplate_618dd570d73bcc4d98fd40bbfb2880939855a30222a3db0242bed71e1f9
     {
         // line 5
         echo "<h1>Gestion des specialites</h1>
-
+    <ul>
+        <li>
+            <a  class=\"FR btn btn-primary btn-sm btn-success\" href=\"";
+        // line 8
+        echo $this->env->getExtension('routing')->getPath("specialite_new");
+        echo "\">
+                Ajouter une nouvelle spécialité
+            </a>
+        </li>
+   
+    </ul>
     <table class=\"table table-bordered\">
         <thead>
             <tr>
@@ -47,42 +57,36 @@ class __TwigTemplate_618dd570d73bcc4d98fd40bbfb2880939855a30222a3db0242bed71e1f9
         </thead>
         <tbody>
         ";
-        // line 16
+        // line 23
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["entities"]) ? $context["entities"] : $this->getContext($context, "entities")));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 17
+            // line 24
             echo "            <tr>
                 <!--<td><a href=\"";
-            // line 18
+            // line 25
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("specialite_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"), "html", null, true);
             echo "</a></td>-->
                 <td>";
-            // line 19
+            // line 26
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "intitule"), "html", null, true);
             echo "</td>
                 <td>
                 <ul>
-                    <li>
-                        <a href=\"";
-            // line 23
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("specialite_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-            echo "\">Voir</a>
-                    </li>
-                    <li>
-                        <a href=\"";
-            // line 26
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("specialite_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-            echo "\">Modifier</a>
-                    </li>
-                    <li>
-                        <a href=\"";
+                <a class=\"icon-search\" href=\"";
             // line 29
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("specialite_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
+            echo "\" title=\"Voir plus d'informations sur cet étudiant\"> </a>
+                <a class=\"icon-edit\"href=\"";
+            // line 30
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("specialite_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
+            echo "\"> </a>
+                <a class=\"icon-trash\" href=\"";
+            // line 31
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("specialite_supprimer", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-            echo "\">Supprimer</a>
-                    </li>
+            echo "\"> </a>
                 </ul>
                 </td>
             </tr>
@@ -91,20 +95,11 @@ class __TwigTemplate_618dd570d73bcc4d98fd40bbfb2880939855a30222a3db0242bed71e1f9
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 35
+        // line 36
         echo "        </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href=\"";
-        // line 40
-        echo $this->env->getExtension('routing')->getPath("specialite_new");
-        echo "\">
-                Ajouter une nouvelle spécialité
-            </a>
-        </li>
-    </ul>
+        
     ";
     }
 
@@ -120,6 +115,6 @@ class __TwigTemplate_618dd570d73bcc4d98fd40bbfb2880939855a30222a3db0242bed71e1f9
 
     public function getDebugInfo()
     {
-        return array (  102 => 40,  95 => 35,  83 => 29,  77 => 26,  71 => 23,  64 => 19,  58 => 18,  55 => 17,  51 => 16,  38 => 5,  35 => 4,  29 => 2,);
+        return array (  99 => 36,  88 => 31,  84 => 30,  80 => 29,  74 => 26,  68 => 25,  65 => 24,  61 => 23,  43 => 8,  38 => 5,  35 => 4,  29 => 2,);
     }
 }
