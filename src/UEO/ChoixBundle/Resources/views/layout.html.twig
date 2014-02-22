@@ -6,27 +6,38 @@
 {% endblock %}
 
 {% block menu %}
-    <div class="navbar">
-        <div class="navbar-inner">
-            <a class="brand" href="#">Inscription pédagogique</a>
-            <ul class="nav">
+    
+<div class="container">
+    <div class="header">
+    <ul class="nav nav-pills pull-right">
+    <li><a href="#" data-toggle="modal" data-target="#myModalContact"><span class="glyphicon glyphicon-envelope"></span>Contact</a></li>
+
+    </ul>
+        <h3 class="text-muted"><a href="#">Inscription pédagogique</a></h3>
+    </div>
+        <div></div>
+        <ul class="nav nav-tabs nav-justified">
             <br>
+            <li><a href="#">Choix</a></li>
+            <li><a href="#">Feuille d'emargement</a></li>
             <li><a href="{{ path('etudiant') }}">Etudiant</a></li>
             <li><a href="{{ path('parcours') }}">Parcours</a></li>
-            <li><a href="{{ path('module') }}">Module</a></li>
+            <li><a href="#">Maquette</a></li>
+            <li><a href="#">UEs</a></li>
             <li><a href="{{ path('specialite') }}">Speciliate</a></li>
-            
            
-            </ul>
-        </div>
+        </ul>
     </div>
         
 {% endblock %} 
 
 {% block body %}
-       
+  
         
 {% endblock %}
 {% block javascripts %}
     <script type="text/javascript" src="{{ asset('bundles/ueoprojet/js/bootstrap.min.js') }}"></script>
 {% endblock %}
+
+
+

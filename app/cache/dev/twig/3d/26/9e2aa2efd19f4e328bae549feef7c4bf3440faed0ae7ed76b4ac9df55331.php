@@ -35,19 +35,16 @@ class __TwigTemplate_3d269e2aa2efd19f4e328bae549feef7c4bf3440faed0ae7ed76b4ac9df
     public function block_body($context, array $blocks = array())
     {
         // line 5
-        echo "<h1>Gestion des étudiants</h1><br>
-    <ul>
+        echo "<h2>Gestion des étudiants</h2>
+    <p>
     <a class=\"FR btn btn-primary btn-sm btn-success\" href=\"";
         // line 7
         echo $this->env->getExtension('routing')->getPath("etudiant_new");
         echo "\">Ajouter un nouvel etudiant</a>
-     <a class=\"FR btn btn-primary btn-sm btn-success\" href=\"";
-        // line 8
-        echo $this->env->getExtension('routing')->getPath("etudiant_new");
-        echo "\">Télécharger la liste des étduaints</a>
-    </ul>
+     <a class=\"FR btn btn-primary btn-sm btn-success\" href=\"#\">Télécharger la liste des étduaints</a>
+    </p>
 
-    <table class=\"table table-bordered\">
+    <table class=\"table table-condensed table-hover\" style=\"background : #FFF; margin-top:15px;\">
         <thead>
             <tr>
                 <!--<th>Id</th>-->
@@ -130,6 +127,6 @@ class __TwigTemplate_3d269e2aa2efd19f4e328bae549feef7c4bf3440faed0ae7ed76b4ac9df
 
     public function getDebugInfo()
     {
-        return array (  115 => 40,  103 => 34,  99 => 33,  95 => 32,  89 => 29,  85 => 28,  81 => 27,  77 => 26,  71 => 25,  68 => 24,  64 => 23,  46 => 8,  42 => 7,  38 => 5,  35 => 4,  29 => 2,);
+        return array (  112 => 40,  100 => 34,  96 => 33,  92 => 32,  86 => 29,  82 => 28,  78 => 27,  74 => 26,  68 => 25,  65 => 24,  61 => 23,  42 => 7,  38 => 5,  35 => 4,  29 => 2,);
     }
 }

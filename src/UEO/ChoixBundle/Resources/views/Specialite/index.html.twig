@@ -2,18 +2,12 @@
 {% block title %}Gestion des spécialites{% endblock %}
 
 {% block body -%}
-    <h1>Gestion des specialites</h1>
-    <ul>
-        <li>
-            <a  class="FR btn btn-primary btn-sm btn-success" href="{{ path('specialite_new') }}">
-                Ajouter une nouvelle spécialité
-            </a>
-        </li>
-   
-    </ul>
-    <table class="table table-bordered">
+    <h2>Gestion des specialites</h2>
+    <a  class="FR btn btn-primary btn-sm btn-success" href="{{ path('specialite_new') }}">Ajouter une nouvelle spécialité</a>
+       
+    <table class="table table-condensed table-hover" style="background : #FFF; margin-top:15px;">
         <thead>
-            <tr>
+            <tr class="active">
                 <!--<th>Id</th>-->
                 <th>Intitule</th>
                 <th>Actions</th>

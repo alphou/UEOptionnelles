@@ -2,16 +2,11 @@
 {% block title %}Gestion des modules{% endblock %}
 {% block body -%}
     <h1>Gestion des modules</h1><br><br>
-    <ul>
-        <li>
-            <a class="FR btn btn-primary btn-sm btn-success" href="{{ path('module_new') }}">
-                Ajouter un module
-            </a>
-        </li>
-    </ul>
+    <p><a class="FR btn btn-primary btn-sm btn-success" href="{{ path('module_new') }}">Ajouter un module</a></p>
+        
 
-    <table class="table table-bordered">
-        <thead>
+    <table class="table table-condensed table-hover" style="background : #FFF; margin-top:15px;">
+        <thead class="active">
             <tr>
                 <th>Intitule</th>
                 <th>Semestre</th>

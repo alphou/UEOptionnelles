@@ -2,13 +2,13 @@
 {% block title %}Gestion des etudiants{% endblock %}
 
 {% block body -%}
-    <h1>Gestion des étudiants</h1><br>
-    <ul>
+    <h2>Gestion des étudiants</h2>
+    <p>
     <a class="FR btn btn-primary btn-sm btn-success" href="{{ path('etudiant_new') }}">Ajouter un nouvel etudiant</a>
-     <a class="FR btn btn-primary btn-sm btn-success" href="{{ path('etudiant_new') }}">Télécharger la liste des étduaints</a>
-    </ul>
+     <a class="FR btn btn-primary btn-sm btn-success" href="#">Télécharger la liste des étduaints</a>
+    </p>
 
-    <table class="table table-bordered">
+    <table class="table table-condensed table-hover" style="background : #FFF; margin-top:15px;">
         <thead>
             <tr>
                 <!--<th>Id</th>-->
