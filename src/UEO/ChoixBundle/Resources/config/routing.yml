@@ -13,3 +13,6 @@ UEOChoixBundle_module:
 UEOChoixBundle_parcours:
         resource: "@UEOChoixBundle/Resources/config/routing/parcours.yml"
         prefix:   /parcours
+UEOChoixBundle_moduleparcours:
+        resource: "@UEOChoixBundle/Resources/config/routing/moduleparcours.yml"
+        prefix:   /maquette

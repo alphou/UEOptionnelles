@@ -1,0 +1,3 @@
+maquette:
+    pattern:  /
+    defaults: { _controller: "UEOChoixBundle:ModuleParcours:index" }

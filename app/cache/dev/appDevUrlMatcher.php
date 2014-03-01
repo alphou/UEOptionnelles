@@ -395,6 +395,15 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // maquette
+        if (rtrim($pathinfo, '/') === '/maquette') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'maquette');
+            }
+
+            return array (  '_controller' => 'UEOChoixBundle:ModuleParcours:index',  '_route' => 'maquette',);
+        }
+
         if (0 === strpos($pathinfo, '/log')) {
             if (0 === strpos($pathinfo, '/login')) {
                 // fos_user_security_login

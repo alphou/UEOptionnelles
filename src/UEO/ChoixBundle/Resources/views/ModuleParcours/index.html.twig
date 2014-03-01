@@ -1,0 +1,25 @@
+{% extends "UEOChoixBundle::layout.html.twig" %}
+{% block title %}Gestion des UEs/Années{% endblock %}
+
+{% block body %}
+
+    <table class="table table-condensed table-hover" style="background : #FFF; margin-top:15px;">
+        <thead>
+            <tr>
+                <!--<th>Id</th>-->
+                <th>Intitulé UE</th>
+                <th>Type</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.getModule().intitule }}</td>
+                <td>{{ entity.oligatoire }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock %}

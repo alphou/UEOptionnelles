@@ -36,7 +36,7 @@ class __TwigTemplate_618dd570d73bcc4d98fd40bbfb2880939855a30222a3db0242bed71e1f9
     {
         // line 5
         echo "<h2>Gestion des specialites</h2>
-    <a  class=\"FR btn btn-primary btn-sm btn-success\" href=\"";
+    <a  class=\"FR btn btn-primary btn-sm btn-success pull-right\" href=\"";
         // line 6
         echo $this->env->getExtension('routing')->getPath("specialite_new");
         echo "\">Ajouter une nouvelle spécialité</a>

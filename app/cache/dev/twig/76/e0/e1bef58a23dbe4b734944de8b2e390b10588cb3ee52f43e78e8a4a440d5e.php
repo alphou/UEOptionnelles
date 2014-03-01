@@ -36,7 +36,7 @@ class __TwigTemplate_76e0e1bef58a23dbe4b734944de8b2e390b10588cb3ee52f43e78e8a4a4
     {
         // line 5
         echo "<h2>Gestion des Parcours</h2>
-    <p><a class=\"FR btn btn-primary btn-sm btn-success\" href=\"";
+    <p><a class=\"FR btn btn-primary btn-sm btn-success pull-right\" href=\"";
         // line 6
         echo $this->env->getExtension('routing')->getPath("parcours_new");
         echo "\">Ajouter un nouvel parcours</a></p>

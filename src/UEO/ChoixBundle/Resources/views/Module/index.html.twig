@@ -1,8 +1,8 @@
 {% extends "UEOChoixBundle::layout.html.twig" %}
-{% block title %}Gestion des modules{% endblock %}
+{% block title %}Gestion des UEs{% endblock %}
 {% block body -%}
-    <h1>Gestion des modules</h1><br><br>
-    <p><a class="FR btn btn-primary btn-sm btn-success" href="{{ path('module_new') }}">Ajouter un module</a></p>
+    <h2>Gestion des UEs</h2><br>
+    <p><a class="FR btn btn-primary btn-sm btn-success pull-right" href="{{ path('module_new') }}">Ajouter un module</a></p>
         
 
     <table class="table table-condensed table-hover" style="background : #FFF; margin-top:15px;">
@@ -10,10 +10,10 @@
             <tr>
                 <th>Intitule</th>
                 <th>Semestre</th>
-                <th>Contenu</th>
+                <!--<th>Contenu</th>-->
                 <th>Nbinscrits</th>
                 <th>Nbplaces</th>
-                <th>Professeur1</th>
+                <!--<th>Professeur1</th>
                 <th>Professeur2</th>
                 <th>Professeur3</th>
                 <th>Professeur4</th>
@@ -22,7 +22,7 @@
                 <th>Professeur7</th>
                 <th>Professeur8</th>
                 <th>Professeur9</th>
-                <th>Professeur10</th>
+                <th>Professeur10</th>-->
                 <th>Actions</th>
             </tr>
         </thead>
@@ -32,10 +32,10 @@
                 <!--<td><a href="{{ path('module_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>-->
                 <td>{{ entity.intitule }}</td>
                 <td>{{ entity.semestre }}</td>
-                <td>{{ entity.contenu }}</td>
+                <!--<td>{{ entity.contenu }}</td>-->
                 <td>{{ entity.nbInscrits }}</td>
                 <td>{{ entity.nbPlaces }}</td>
-                <td>{{ entity.professeur1 }}</td>
+                <!--<td>{{ entity.professeur1 }}</td>
                 <td>{{ entity.professeur2 }}</td>
                 <td>{{ entity.professeur3 }}</td>
                 <td>{{ entity.professeur4 }}</td>
@@ -44,7 +44,7 @@
                 <td>{{ entity.professeur7 }}</td>
                 <td>{{ entity.professeur8 }}</td>
                 <td>{{ entity.professeur9 }}</td>
-                <td>{{ entity.professeur10 }}</td>
+                <td>{{ entity.professeur10 }}</td>-->
                 <td>
                 <ul>
                     <li>

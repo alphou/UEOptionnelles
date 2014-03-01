@@ -48,47 +48,54 @@ class __TwigTemplate_3002b8a618942176d5dc1561c4a336160efa9fa15b8cc6f0ea2f7f2c9ee
     <li><a href=\"#\" data-toggle=\"modal\" data-target=\"#myModalContact\"><span class=\"glyphicon glyphicon-envelope\"></span>Contact</a></li>
 
     </ul>
-        <h3 class=\"text-muted\"><a href=\"#\">Inscription pédagogique</a></h3>
+        <h3 class=\"text-muted \"><a href=\"#\">Inscription pédagogique</a></h3>
     </div>
-        <div></div>
-        <ul class=\"nav nav-tabs nav-justified\">
+        <div>
+         <ul class=\"nav nav-tabs nav-justified\">
             <br>
             <li><a href=\"#\">Choix</a></li>
             <li><a href=\"#\">Feuille d'emargement</a></li>
             <li><a href=\"";
         // line 23
         echo $this->env->getExtension('routing')->getPath("etudiant");
-        echo "\">Etudiant</a></li>
+        echo "\">Etudiants</a></li>
             <li><a href=\"";
         // line 24
         echo $this->env->getExtension('routing')->getPath("parcours");
         echo "\">Parcours</a></li>
-            <li><a href=\"#\">Maquette</a></li>
-            <li><a href=\"#\">UEs</a></li>
+            <li><a href=\"";
+        // line 25
+        echo $this->env->getExtension('routing')->getPath("maquette");
+        echo "\">Maquette</a></li>
+            <li><a href=\"";
+        // line 26
+        echo $this->env->getExtension('routing')->getPath("module");
+        echo "\">UEs</a></li>
             <li><a href=\"";
         // line 27
         echo $this->env->getExtension('routing')->getPath("specialite");
-        echo "\">Speciliate</a></li>
+        echo "\">Spéciliatés</a></li>
            
-        </ul>
+         </ul>
+        </div>
     </div>
         
 ";
     }
 
-    // line 34
+    // line 35
     public function block_body($context, array $blocks = array())
     {
-        // line 35
+        // line 36
         echo "  
         
 ";
     }
 
-    // line 38
+    // line 39
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 39
+        // line 40
         echo "    <script type=\"text/javascript\" src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ueoprojet/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
@@ -107,6 +114,6 @@ class __TwigTemplate_3002b8a618942176d5dc1561c4a336160efa9fa15b8cc6f0ea2f7f2c9ee
 
     public function getDebugInfo()
     {
-        return array (  92 => 39,  89 => 38,  83 => 35,  80 => 34,  70 => 27,  64 => 24,  60 => 23,  44 => 9,  41 => 8,  34 => 5,  31 => 4,);
+        return array (  99 => 40,  96 => 39,  90 => 36,  87 => 35,  76 => 27,  72 => 26,  68 => 25,  64 => 24,  60 => 23,  44 => 9,  41 => 8,  34 => 5,  31 => 4,);
     }
 }

@@ -28,29 +28,29 @@ class __TwigTemplate_89cb30dc66accf4c5a303c67d3373ae49c21480bb8351b8f8839167c558
     // line 2
     public function block_title($context, array $blocks = array())
     {
-        echo "Gestion des modules";
+        echo "Gestion des UEs";
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
         // line 4
-        echo "<h1>Gestion des modules</h1><br><br>
-    <p><a class=\"FR btn btn-primary btn-sm btn-success\" href=\"";
+        echo "<h2>Gestion des UEs</h2><br>
+    <p><a class=\"FR btn btn-primary btn-sm btn-success pull-right\" href=\"";
         // line 5
         echo $this->env->getExtension('routing')->getPath("module_new");
         echo "\">Ajouter un module</a></p>
         
 
     <table class=\"table table-condensed table-hover\" style=\"background : #FFF; margin-top:15px;\">
-        <thead>
+        <thead class=\"active\">
             <tr>
                 <th>Intitule</th>
                 <th>Semestre</th>
-                <th>Contenu</th>
+                <!--<th>Contenu</th>-->
                 <th>Nbinscrits</th>
                 <th>Nbplaces</th>
-                <th>Professeur1</th>
+                <!--<th>Professeur1</th>
                 <th>Professeur2</th>
                 <th>Professeur3</th>
                 <th>Professeur4</th>
@@ -59,7 +59,7 @@ class __TwigTemplate_89cb30dc66accf4c5a303c67d3373ae49c21480bb8351b8f8839167c558
                 <th>Professeur7</th>
                 <th>Professeur8</th>
                 <th>Professeur9</th>
-                <th>Professeur10</th>
+                <th>Professeur10</th>-->
                 <th>Actions</th>
             </tr>
         </thead>
@@ -85,10 +85,10 @@ class __TwigTemplate_89cb30dc66accf4c5a303c67d3373ae49c21480bb8351b8f8839167c558
             // line 34
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "semestre"), "html", null, true);
             echo "</td>
-                <td>";
+                <!--<td>";
             // line 35
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "contenu"), "html", null, true);
-            echo "</td>
+            echo "</td>-->
                 <td>";
             // line 36
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "nbInscrits"), "html", null, true);
@@ -97,7 +97,7 @@ class __TwigTemplate_89cb30dc66accf4c5a303c67d3373ae49c21480bb8351b8f8839167c558
             // line 37
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "nbPlaces"), "html", null, true);
             echo "</td>
-                <td>";
+                <!--<td>";
             // line 38
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "professeur1"), "html", null, true);
             echo "</td>
@@ -136,7 +136,7 @@ class __TwigTemplate_89cb30dc66accf4c5a303c67d3373ae49c21480bb8351b8f8839167c558
                 <td>";
             // line 47
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "professeur10"), "html", null, true);
-            echo "</td>
+            echo "</td>-->
                 <td>
                 <ul>
                     <li>
