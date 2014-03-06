@@ -401,7 +401,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->redirect($pathinfo.'/', 'maquette');
             }
 
-            return array (  '_controller' => 'UEOChoixBundle:ModuleParcours:index',  '_route' => 'maquette',);
+            return array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\ModuleParcoursController::indexAction',  '_route' => 'maquette',);
         }
 
         if (0 === strpos($pathinfo, '/log')) {
