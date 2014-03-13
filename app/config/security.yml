@@ -1,34 +1,50 @@
-security:
+security: 
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
 
-    role_hierarchy:
-        ROLE_ETUDIANT : ROLE_USER
-        ROLE_ADMIN:       ROLE_ETUDIANT
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
-
-    access_control:
-        - { path: ^/etudiant, roles: ROLE_ADMIN }
-
     providers:
         fos_userbundle:
-            id: fos_user.user_manager
+            id:                 fos_user.user_provider.username_email
+
     firewalls:
         dev:
-            pattern:  ^/(_(profiler|wdt)|css|images|js)/
-            security: false
+            pattern:            ^/(_(profiler|wdt)|css|images|js)/
+            security:           false
         login:
-            pattern:   ^/(login$|register|resetting)
-            anonymous: true
+            pattern:            ^/(login$|register|resetting)
+            anonymous:          true
         main:
-            pattern: ^/
+            pattern:    ^/
             form_login:
-                provider:    fos_userbundle
-                remember_me: true
-            remember_me: 
-                key: "%secret%"
-            anonymous:       true
-            logout:          true
+                provider:       fos_userbundle
+                csrf_provider:  form.csrf_provider
+                remember_me:    true
+            remember_me:
+                key:            %secret%
+            logout:     true
+            anonymous:  true
+
+    #acl:
+    #    connection: default
+
+    role_hierarchy:
+        ROLE_TEMPORAIRE:     ROLE_USER
+        ROLE_ETUDIANT:       ROLE_TEMPORAIRE
+        ROLE_ENSEIGNANT:     
+            - ROLE_USER
+            - ROLE_TEMPORAIRE
+        ROLE_SUPER_ADMIN: 
+            - ROLE_TEMPORAIRE
+            - ROLE_ETUDIANT
+            - ROLE_ENSEIGNANT
+            - ROLE_ADMIN
 
     access_control:
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/compte-temporaire, role: ROLE_TEMPORAIRE }
+        - { path: ^/etudiant, role: ROLE_ETUDIANT }
+        - { path: ^/emargement, role: ROLE_ENSEIGNANT }
+        - { path: ^/parcours, role: ROLE_SUPER_ADMIN }

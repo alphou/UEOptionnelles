@@ -15,19 +15,26 @@ UEO\ChoixBundle\Entity\Parcours:
             type: smallint
         dateDebutChoixS1:
             type: datetime
+            nullable: TRUE
         dateFinChoixS1:
             type: datetime
+            nullable: TRUE
         dateDebutChoix2:
             type: datetime
+            nullable: TRUE
         dateFinChoixS2:
             type: datetime
+            nullable: TRUE
         intituleCourt:
             type: string
+            nullable: TRUE
         anneeFormation:
             type: smallint
+            nullable: TRUE
         emailResponsable:
             type: string
             length: 32
+            nullable: TRUE
     manyToOne: 
             specialite:
                 targetEntity: Specialite

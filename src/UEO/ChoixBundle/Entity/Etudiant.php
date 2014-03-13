@@ -165,4 +165,32 @@ class Etudiant
         return $this->parcours;
     }
 
+    /**
+     * @var \UEO\ChoixBundle\Entity\Utilisateur
+     */
+    private $utilisateur;
+
+
+    /**
+     * Set utilisateur
+     *
+     * @param \UEO\ChoixBundle\Entity\Utilisateur $utilisateur
+     * @return Etudiant
+     */
+    public function setUtilisateur(\UEO\ChoixBundle\Entity\Utilisateur $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \UEO\ChoixBundle\Entity\Utilisateur 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
 }

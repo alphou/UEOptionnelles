@@ -135,9 +135,13 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // ueo_user_default_index
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'ueo_user_default_index')), array (  '_controller' => 'UEO\\UserBundle\\Controller\\DefaultController::indexAction',));
+        // UEOChoixBundle_homepage
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'UEOChoixBundle_homepage');
+            }
+
+            return array (  '_controller' => 'UEO\\ChoixBundle\\Controller\\HomepageController::indexAction',  '_route' => 'UEOChoixBundle_homepage',);
         }
 
         if (0 === strpos($pathinfo, '/etudiant')) {
@@ -413,14 +417,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
                 // fos_user_security_check
                 if ($pathinfo === '/login_check') {
-                    if ($this->context->getMethod() != 'POST') {
-                        $allow[] = 'POST';
-                        goto not_fos_user_security_check;
-                    }
-
                     return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::checkAction',  '_route' => 'fos_user_security_check',);
                 }
-                not_fos_user_security_check:
 
             }
 
@@ -556,7 +554,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // fos_user_change_password
-        if ($pathinfo === '/change­password/change-password') {
+        if ($pathinfo === '/profile/change-password') {
             if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
                 $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
                 goto not_fos_user_change_password;

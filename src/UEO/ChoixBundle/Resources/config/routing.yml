@@ -1,9 +1,15 @@
-UEOChoixBundle_etudiant:
-        resource: "@UEOChoixBundle/Resources/config/routing/home.yml"
-        prefix:   /home
+# Page d'accueil
+UEOChoixBundle_homepage:
+    pattern:  /
+    defaults: { _controller: "UEOChoixBundle:Homepage:index" }
+
+
+#Pages Etudiant
 UEOChoixBundle_etudiant:
         resource: "@UEOChoixBundle/Resources/config/routing/etudiant.yml"
         prefix:   /etudiant
+
+#Pages Admin
 UEOChoixBundle_specialite:
         resource: "@UEOChoixBundle/Resources/config/routing/specialite.yml"
         prefix:   /specialite
@@ -16,3 +22,7 @@ UEOChoixBundle_parcours:
 UEOChoixBundle_moduleparcours:
         resource: "@UEOChoixBundle/Resources/config/routing/moduleparcours.yml"
         prefix:   /maquette
+
+#Pages Utilisateur
+UEOChoixBundle_utilisateur:
+        resource: "@UEOChoixBundle/Resources/config/routing/utilisateur.yml"

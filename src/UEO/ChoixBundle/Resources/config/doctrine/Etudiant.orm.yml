@@ -11,12 +11,18 @@ UEO\ChoixBundle\Entity\Etudiant:
     fields:
         nom:
             type: string
+            nullable: TRUE
         prenom:
             type: string
+            nullable: TRUE
         email:
             type: string
             length: 32
+            nullable: TRUE
     manyToOne: 
             parcours:
                 targetEntity: Parcours
+                cascade: [ persist, merge ]
+            utilisateur:
+                targetEntity: Utilisateur
                 cascade: [ persist, merge ]

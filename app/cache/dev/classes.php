@@ -58,7 +58,6 @@ return $this->container->get('session');
 namespace Symfony\Component\HttpFoundation\Session\Storage
 {
 use Symfony\Component\HttpFoundation\Session\SessionBagInterface;
-use Symfony\Component\HttpFoundation\Session\Storage\MetadataBag;
 interface SessionStorageInterface
 {
 public function start();
@@ -79,7 +78,6 @@ namespace Symfony\Component\HttpFoundation\Session\Storage
 {
 use Symfony\Component\HttpFoundation\Session\SessionBagInterface;
 use Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeSessionHandler;
-use Symfony\Component\HttpFoundation\Session\Storage\MetadataBag;
 use Symfony\Component\HttpFoundation\Session\Storage\Proxy\NativeProxy;
 use Symfony\Component\HttpFoundation\Session\Storage\Proxy\AbstractProxy;
 use Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy;
@@ -275,7 +273,6 @@ $this->closed = false;
 }
 namespace Symfony\Component\HttpFoundation\Session\Storage
 {
-use Symfony\Component\HttpFoundation\Session\Storage\MetadataBag;
 use Symfony\Component\HttpFoundation\Session\Storage\Proxy\AbstractProxy;
 use Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeSessionHandler;
 class PhpBridgeSessionStorage extends NativeSessionStorage
@@ -469,7 +466,6 @@ use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
 use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
-use Symfony\Component\HttpFoundation\Session\SessionBagInterface;
 use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
 class Session implements SessionInterface, \IteratorAggregate, \Countable
 {
@@ -1398,10 +1394,8 @@ if ($route->getCondition() && !$this->getExpressionLanguage()->evaluate($route->
 return array(self::REQUIREMENT_MISMATCH, null);
 }
 $scheme = $route->getRequirement('_scheme');
-if ($scheme && $scheme !== $this->context->getScheme()) {
-return array(self::REQUIREMENT_MISMATCH, null);
-}
-return array(self::REQUIREMENT_MATCH, null);
+$status = $scheme && $scheme !== $this->context->getScheme() ? self::REQUIREMENT_MISMATCH : self::REQUIREMENT_MATCH;
+return array($status, null);
 }
 protected function mergeDefaults($params, $defaults)
 {
@@ -2023,7 +2017,7 @@ return $controller;
 }
 if (false === strpos($controller,':')) {
 if (method_exists($controller,'__invoke')) {
-return new $controller;
+return new $controller();
 } elseif (function_exists($controller)) {
 return $controller;
 }
@@ -2349,7 +2343,6 @@ namespace Symfony\Bundle\FrameworkBundle\Controller
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpKernel\Controller\ControllerResolver as BaseControllerResolver;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 class ControllerResolver extends BaseControllerResolver
 {
@@ -2383,6 +2376,36 @@ if ($controller instanceof ContainerAwareInterface) {
 $controller->setContainer($this->container);
 }
 return array($controller, $method);
+}
+}
+}
+namespace Symfony\Component\Security\Http
+{
+use Symfony\Component\HttpFoundation\Request;
+interface AccessMapInterface
+{
+public function getPatterns(Request $request);
+}
+}
+namespace Symfony\Component\Security\Http
+{
+use Symfony\Component\HttpFoundation\RequestMatcherInterface;
+use Symfony\Component\HttpFoundation\Request;
+class AccessMap implements AccessMapInterface
+{
+private $map = array();
+public function add(RequestMatcherInterface $requestMatcher, array $attributes = array(), $channel = null)
+{
+$this->map[] = array($requestMatcher, $attributes, $channel);
+}
+public function getPatterns(Request $request)
+{
+foreach ($this->map as $elements) {
+if (null === $elements[0] || $elements[0]->matches($request)) {
+return array($elements[1], $elements[2]);
+}
+}
+return array(null, null);
 }
 }
 }
@@ -2851,7 +2874,7 @@ namespace
 {
 class Twig_Environment
 {
-const VERSION ='1.14.2';
+const VERSION ='1.15.1';
 protected $charset;
 protected $loader;
 protected $debug;
@@ -2878,7 +2901,6 @@ protected $templateClassPrefix ='__TwigTemplate_';
 protected $functionCallbacks;
 protected $filterCallbacks;
 protected $staging;
-protected $templateClasses;
 public function __construct(Twig_LoaderInterface $loader = null, $options = array())
 {
 if (null !== $loader) {
@@ -2895,7 +2917,6 @@ $this->runtimeInitialized = false;
 $this->setCache($options['cache']);
 $this->functionCallbacks = array();
 $this->filterCallbacks = array();
-$this->templateClasses = array();
 $this->addExtension(new Twig_Extension_Core());
 $this->addExtension(new Twig_Extension_Escaper($options['autoescape']));
 $this->addExtension(new Twig_Extension_Optimizer($options['optimizations']));
@@ -2964,12 +2985,7 @@ return $this->getCache().'/'.substr($class, 0, 2).'/'.substr($class, 2, 2).'/'.s
 }
 public function getTemplateClass($name, $index = null)
 {
-$suffix = null === $index ?'':'_'.$index;
-$cls = $name.$suffix;
-if (isset($this->templateClasses[$cls])) {
-return $this->templateClasses[$cls];
-}
-return $this->templateClasses[$cls] = $this->templateClassPrefix.hash('sha256', $this->getLoader()->getCacheKey($name)).$suffix;
+return $this->templateClassPrefix.hash('sha256', $this->getLoader()->getCacheKey($name)).(null === $index ?'':'_'.$index);
 }
 public function getTemplateClassPrefix()
 {
@@ -3625,6 +3641,7 @@ new Twig_SimpleFilter('format','sprintf'),
 new Twig_SimpleFilter('replace','strtr'),
 new Twig_SimpleFilter('number_format','twig_number_format_filter', array('needs_environment'=> true)),
 new Twig_SimpleFilter('abs','abs'),
+new Twig_SimpleFilter('round','twig_round'),
 new Twig_SimpleFilter('url_encode','twig_urlencode_filter'),
 new Twig_SimpleFilter('json_encode','twig_jsonencode_filter'),
 new Twig_SimpleFilter('convert_encoding','twig_convert_encoding'),
@@ -3659,12 +3676,15 @@ return $filters;
 public function getFunctions()
 {
 return array(
+new Twig_SimpleFunction('max','max'),
+new Twig_SimpleFunction('min','min'),
 new Twig_SimpleFunction('range','range'),
 new Twig_SimpleFunction('constant','twig_constant'),
 new Twig_SimpleFunction('cycle','twig_cycle'),
 new Twig_SimpleFunction('random','twig_random', array('needs_environment'=> true)),
 new Twig_SimpleFunction('date','twig_date_converter', array('needs_environment'=> true)),
 new Twig_SimpleFunction('include','twig_include', array('needs_environment'=> true,'needs_context'=> true,'is_safe'=> array('all'))),
+new Twig_SimpleFunction('source','twig_source', array('needs_environment'=> true,'is_safe'=> array('all'))),
 );
 }
 public function getTests()
@@ -3754,7 +3774,7 @@ return mt_rand();
 if (is_int($values) || is_float($values)) {
 return $values < 0 ? mt_rand($values, 0) : mt_rand(0, $values);
 }
-if (is_object($values) && $values instanceof Traversable) {
+if ($values instanceof Traversable) {
 $values = iterator_to_array($values);
 } elseif (is_string($values)) {
 if (''=== $values) {
@@ -3808,14 +3828,15 @@ $defaultTimezone = new DateTimeZone($timezone);
 } else {
 $defaultTimezone = $timezone;
 }
-if ($date instanceof DateTime || $date instanceof DateTimeInterface) {
-$returningDate = new DateTime($date->format('c'));
-if (false !== $timezone) {
-$returningDate->setTimezone($defaultTimezone);
-} else {
-$returningDate->setTimezone($date->getTimezone());
+if ($date instanceof DateTimeImmutable) {
+return false !== $timezone ? $date->setTimezone($defaultTimezone) : $date;
 }
-return $returningDate;
+if ($date instanceof DateTime || $date instanceof DateTimeInterface) {
+$date = clone $date;
+if (false !== $timezone) {
+$date->setTimezone($defaultTimezone);
+}
+return $date;
 }
 $asString = (string) $date;
 if (ctype_digit($asString) || (!empty($asString) &&'-'=== $asString[0] && ctype_digit(substr($asString, 1)))) {
@@ -3826,6 +3847,16 @@ if (false !== $timezone) {
 $date->setTimezone($defaultTimezone);
 }
 return $date;
+}
+function twig_round($value, $precision = 0, $method ='common')
+{
+if ('common'== $method) {
+return round($value, $precision);
+}
+if ('ceil'!= $method &&'floor'!= $method) {
+throw new Twig_Error_Runtime('The round filter only supports the "common", "ceil", and "floor" methods.');
+}
+return $method($value * pow(10, $precision)) / pow(10, $precision);
 }
 function twig_number_format_filter(Twig_Environment $env, $number, $decimal = null, $decimalPoint = null, $thousandSep = null)
 {
@@ -3887,7 +3918,7 @@ return array_merge($arr1, $arr2);
 }
 function twig_slice(Twig_Environment $env, $item, $start, $length = null, $preserveKeys = false)
 {
-if (is_object($item) && $item instanceof Traversable) {
+if ($item instanceof Traversable) {
 $item = iterator_to_array($item, false);
 }
 if (is_array($item)) {
@@ -3902,16 +3933,16 @@ return null === $length ? substr($item, $start) : substr($item, $start, $length)
 function twig_first(Twig_Environment $env, $item)
 {
 $elements = twig_slice($env, $item, 0, 1, false);
-return is_string($elements) ? $elements[0] : current($elements);
+return is_string($elements) ? $elements : current($elements);
 }
 function twig_last(Twig_Environment $env, $item)
 {
 $elements = twig_slice($env, $item, -1, 1, false);
-return is_string($elements) ? $elements[0] : current($elements);
+return is_string($elements) ? $elements : current($elements);
 }
 function twig_join_filter($value, $glue ='')
 {
-if (is_object($value) && $value instanceof Traversable) {
+if ($value instanceof Traversable) {
 $value = iterator_to_array($value, false);
 }
 return implode($glue, (array) $value);
@@ -3976,7 +4007,7 @@ if (!strlen($value)) {
 return empty($compare);
 }
 return false !== strpos($compare, (string) $value);
-} elseif (is_object($compare) && $compare instanceof Traversable) {
+} elseif ($compare instanceof Traversable) {
 return in_array($value, iterator_to_array($compare, false), is_object($value));
 }
 return false;
@@ -4212,6 +4243,8 @@ return $value instanceof Traversable || is_array($value);
 }
 function twig_include(Twig_Environment $env, $context, $template, $variables = array(), $withContext = true, $ignoreMissing = false, $sandboxed = false)
 {
+$alreadySandboxed = false;
+$sandbox = null;
 if ($withContext) {
 $variables = array_merge($context, $variables);
 }
@@ -4232,6 +4265,10 @@ if ($isSandboxed && !$alreadySandboxed) {
 $sandbox->disableSandbox();
 }
 }
+function twig_source(Twig_Environment $env, $name)
+{
+return $env->getLoader()->getSource($name);
+}
 function twig_constant($constant, $object = null)
 {
 if (null !== $object) {
@@ -4241,7 +4278,7 @@ return constant($constant);
 }
 function twig_array_batch($items, $size, $fill = null)
 {
-if (is_object($items) && $items instanceof Traversable) {
+if ($items instanceof Traversable) {
 $items = iterator_to_array($items, false);
 }
 $size = ceil($size);
@@ -4426,7 +4463,6 @@ throw new Twig_Error_Runtime(sprintf('The template has no parent and no traits d
 public function displayBlock($name, array $context, array $blocks = array())
 {
 $name = (string) $name;
-$template = null;
 if (isset($blocks[$name])) {
 $template = $blocks[$name][0];
 $block = $blocks[$name][1];
@@ -4434,6 +4470,9 @@ unset($blocks[$name]);
 } elseif (isset($this->blocks[$name])) {
 $template = $this->blocks[$name][0];
 $block = $this->blocks[$name][1];
+} else {
+$template = null;
+$block = null;
 }
 if (null !== $template) {
 try {
@@ -4536,15 +4575,18 @@ return false;
 if ($ignoreStrictCheck || !$this->env->isStrictVariables()) {
 return null;
 }
-if (is_object($object)) {
-throw new Twig_Error_Runtime(sprintf('Key "%s" in object (with ArrayAccess) of type "%s" does not exist', $arrayItem, get_class($object)), -1, $this->getTemplateName());
+if ($object instanceof ArrayAccess) {
+$message = sprintf('Key "%s" in object with ArrayAccess of class "%s" does not exist', $arrayItem, get_class($object));
+} elseif (is_object($object)) {
+$message = sprintf('Impossible to access a key "%s" on an object of class "%s" that does not implement ArrayAccess interface', $item, get_class($object));
 } elseif (is_array($object)) {
-throw new Twig_Error_Runtime(sprintf('Key "%s" for array with keys "%s" does not exist', $arrayItem, implode(', ', array_keys($object))), -1, $this->getTemplateName());
+$message = sprintf('Key "%s" for array with keys "%s" does not exist', $arrayItem, implode(', ', array_keys($object)));
 } elseif (Twig_Template::ARRAY_CALL === $type) {
-throw new Twig_Error_Runtime(sprintf('Impossible to access a key ("%s") on a %s variable ("%s")', $item, gettype($object), $object), -1, $this->getTemplateName());
+$message = sprintf('Impossible to access a key ("%s") on a %s variable ("%s")', $item, gettype($object), $object);
 } else {
-throw new Twig_Error_Runtime(sprintf('Impossible to access an attribute ("%s") on a %s variable ("%s")', $item, gettype($object), $object), -1, $this->getTemplateName());
+$message = sprintf('Impossible to access an attribute ("%s") on a %s variable ("%s")', $item, gettype($object), $object);
 }
+throw new Twig_Error_Runtime($message, -1, $this->getTemplateName());
 }
 }
 if (!is_object($object)) {
@@ -4571,6 +4613,7 @@ return $object->$item;
 if (!isset(self::$cache[$class]['methods'])) {
 self::$cache[$class]['methods'] = array_change_key_case(array_flip(get_class_methods($object)));
 }
+$call = false;
 $lcItem = strtolower($item);
 if (isset(self::$cache[$class]['methods'][$lcItem])) {
 $method = (string) $item;
@@ -4580,6 +4623,7 @@ $method ='get'.$item;
 $method ='is'.$item;
 } elseif (isset(self::$cache[$class]['methods']['__call'])) {
 $method = (string) $item;
+$call = true;
 } else {
 if ($isDefinedTest) {
 return false;
@@ -4595,7 +4639,14 @@ return true;
 if ($this->env->hasExtension('sandbox')) {
 $this->env->getExtension('sandbox')->checkMethodAllowed($object, $method);
 }
+try {
 $ret = call_user_func_array(array($object, $method), $arguments);
+} catch (BadMethodCallException $e) {
+if ($call && ($ignoreStrictCheck || !$this->env->isStrictVariables())) {
+return null;
+}
+throw $e;
+}
 if ($object instanceof Twig_TemplateInterface) {
 return $ret ===''?'': new Twig_Markup($ret, $this->env->getCharset());
 }

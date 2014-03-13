@@ -11,3 +11,4 @@ UEO\ChoixBundle\Entity\Specialite:
     fields:
         intitule:
             type: string
+            nullable: TRUE

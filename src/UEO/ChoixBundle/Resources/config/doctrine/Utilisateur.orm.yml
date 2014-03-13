@@ -1,0 +1,11 @@
+UEO\ChoixBundle\Entity\Utilisateur:
+    type: entity
+    table: fos_user
+    repositoryClass: UEO\ChoixBundle\Entity\UtilisateurRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }

@@ -1,14 +1,14 @@
+# This file is auto-generated during the composer install
 parameters:
     database_driver: pdo_mysql
-    database_host: localhost
-    database_port: '8889'
+    database_host: 127.0.0.1
+    database_port: null
     database_name: UEO
     database_user: root
     database_password: root
     mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
-    locale: en
-    secret: 9834bfd5b19f3ba1c84855e5ea9b7c85
-    database_path: null
+    mailer_host: 'http://smtp.1and1.fr/'
+    mailer_user: mail@ueoptionnelles.soufiane.fr
+    mailer_password: UEOptionnelles
+    locale: fr
+    secret: ThisTokenIsNotSoSecretChangeIt

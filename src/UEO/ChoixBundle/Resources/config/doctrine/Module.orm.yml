@@ -13,30 +13,17 @@ UEO\ChoixBundle\Entity\Module:
             type: string
         semestre:
             type: smallint
+            nullable: TRUE
         contenu:
             type: string
+            nullable: TRUE
         nbInscrits:
             type: smallint
+            nullable: TRUE
         nbPlaces:
             type: smallint
+            nullable: TRUE
         professeur1:
             type: string
-        professeur2:
-            type: string
-        professeur3:
-            type: string
-        professeur4:
-            type: string
-        professeur5:
-            type: string
-        professeur6:
-            type: string
-        professeur7:
-            type: string
-        professeur8:
-            type: string
-        professeur9:
-            type: string
-        professeur10:
-            type: string
+            nullable: TRUE
     lifecycleCallbacks: {  }
